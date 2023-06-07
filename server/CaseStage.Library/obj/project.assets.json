@@ -14,6 +14,16 @@
             "related": ".xml"
           }
         }
+      },
+      "CreateStage.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/CreateStage.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CreateStage.Domain.dll": {}
+        }
       }
     }
   },
@@ -35,10 +45,16 @@
         "mediatr.9.0.0.nupkg.sha512",
         "mediatr.nuspec"
       ]
+    },
+    "CreateStage.Domain/1.0.0": {
+      "type": "project",
+      "path": "../CreateStage.Domain/CreateStage.Domain.csproj",
+      "msbuildProject": "../CreateStage.Domain/CreateStage.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "CreateStage.Domain >= 1.0.0",
       "MediatR >= 9.0.0"
     ]
   },
@@ -48,9 +64,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\projetos\\case-stage\\server\\CaseStage.Library\\CaseStage.Library.csproj",
-      "projectName": "CaseStage.Library",
-      "projectPath": "C:\\projetos\\case-stage\\server\\CaseStage.Library\\CaseStage.Library.csproj",
+      "projectUniqueName": "C:\\projetos\\case-stage\\server\\CaseStage.Library\\CaseStage.Application.csproj",
+      "projectName": "CaseStage.Application",
+      "projectPath": "C:\\projetos\\case-stage\\server\\CaseStage.Library\\CaseStage.Application.csproj",
       "packagesPath": "C:\\Users\\samue\\.nuget\\packages\\",
       "outputPath": "C:\\projetos\\case-stage\\server\\CaseStage.Library\\obj\\",
       "projectStyle": "PackageReference",
@@ -68,7 +84,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\projetos\\case-stage\\server\\CreateStage.Domain\\CreateStage.Domain.csproj": {
+              "projectPath": "C:\\projetos\\case-stage\\server\\CreateStage.Domain\\CreateStage.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

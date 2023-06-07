@@ -1,4 +1,4 @@
-using CaseStage.Library.Data;
+using CaseStage.Application.Repository;
 using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,8 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IDataRepository, DataRepository>();
-builder.Services.AddMediatR(typeof(DataRepository).Assembly);
+builder.Services.AddScoped<IAreaRepository, AreaRepository>();
+builder.Services.AddMediatR(typeof(AreaRepository).Assembly);
 
 var app = builder.Build();
 

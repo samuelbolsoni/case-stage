@@ -1,6 +1,6 @@
-﻿using CaseStage.Library.Commands;
-using CaseStage.Library.Models;
-using CaseStage.Library.Queries;
+﻿using CaseStage.Application.Areas.Commands;
+using CaseStage.Application.Areas.Models;
+using CaseStage.Application.Areas.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

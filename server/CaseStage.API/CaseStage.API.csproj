@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CaseStage.Library\CaseStage.Library.csproj" />
+    <ProjectReference Include="..\CaseStage.Library\CaseStage.Application.csproj" />
   </ItemGroup>
 
 </Project>

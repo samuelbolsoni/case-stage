@@ -135,17 +135,28 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "CaseStage.Library/1.0.0": {
+      "CaseStage.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "CreateStage.Domain": "1.0.0",
           "MediatR": "9.0.0"
         },
         "compile": {
-          "bin/placeholder/CaseStage.Library.dll": {}
+          "bin/placeholder/CaseStage.Application.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CaseStage.Library.dll": {}
+          "bin/placeholder/CaseStage.Application.dll": {}
+        }
+      },
+      "CreateStage.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/CreateStage.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CreateStage.Domain.dll": {}
         }
       }
     }
@@ -401,15 +412,20 @@
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
     },
-    "CaseStage.Library/1.0.0": {
+    "CaseStage.Application/1.0.0": {
       "type": "project",
-      "path": "../CaseStage.Library/CaseStage.Library.csproj",
-      "msbuildProject": "../CaseStage.Library/CaseStage.Library.csproj"
+      "path": "../CaseStage.Library/CaseStage.Application.csproj",
+      "msbuildProject": "../CaseStage.Library/CaseStage.Application.csproj"
+    },
+    "CreateStage.Domain/1.0.0": {
+      "type": "project",
+      "path": "../CreateStage.Domain/CreateStage.Domain.csproj",
+      "msbuildProject": "../CreateStage.Domain/CreateStage.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "CaseStage.Library >= 1.0.0",
+      "CaseStage.Application >= 1.0.0",
       "MediatR.Extensions.Microsoft.DependencyInjection >= 9.0.0",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.18.1",
       "Swashbuckle.AspNetCore >= 6.2.3"
@@ -443,8 +459,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\projetos\\case-stage\\server\\CaseStage.Library\\CaseStage.Library.csproj": {
-              "projectPath": "C:\\projetos\\case-stage\\server\\CaseStage.Library\\CaseStage.Library.csproj"
+            "C:\\projetos\\case-stage\\server\\CaseStage.Library\\CaseStage.Application.csproj": {
+              "projectPath": "C:\\projetos\\case-stage\\server\\CaseStage.Library\\CaseStage.Application.csproj"
             }
           }
         }
