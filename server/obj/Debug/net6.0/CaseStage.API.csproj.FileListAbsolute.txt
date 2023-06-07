@@ -1,0 +1,7 @@
+C:\projetos\case-stage\server\obj\Debug\net6.0\CaseStage.API.csproj.AssemblyReference.cache
+C:\projetos\case-stage\server\obj\Debug\net6.0\CaseStage.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\projetos\case-stage\server\obj\Debug\net6.0\CaseStage.API.AssemblyInfoInputs.cache
+C:\projetos\case-stage\server\obj\Debug\net6.0\CaseStage.API.AssemblyInfo.cs
+C:\projetos\case-stage\server\obj\Debug\net6.0\CaseStage.API.csproj.CoreCompileInputs.cache
+C:\projetos\case-stage\server\obj\Debug\net6.0\CaseStage.API.MvcApplicationPartsAssemblyInfo.cs
+C:\projetos\case-stage\server\obj\Debug\net6.0\CaseStage.API.MvcApplicationPartsAssemblyInfo.cache

@@ -1,0 +1,12 @@
+C:\projetos\case-stage\server\CaseStage.Library\bin\Debug\net6.0\CaseStage.Library.deps.json
+C:\projetos\case-stage\server\CaseStage.Library\bin\Debug\net6.0\CaseStage.Library.dll
+C:\projetos\case-stage\server\CaseStage.Library\bin\Debug\net6.0\CaseStage.Library.pdb
+C:\projetos\case-stage\server\CaseStage.Library\obj\Debug\net6.0\CaseStage.Library.csproj.AssemblyReference.cache
+C:\projetos\case-stage\server\CaseStage.Library\obj\Debug\net6.0\CaseStage.Library.GeneratedMSBuildEditorConfig.editorconfig
+C:\projetos\case-stage\server\CaseStage.Library\obj\Debug\net6.0\CaseStage.Library.AssemblyInfoInputs.cache
+C:\projetos\case-stage\server\CaseStage.Library\obj\Debug\net6.0\CaseStage.Library.AssemblyInfo.cs
+C:\projetos\case-stage\server\CaseStage.Library\obj\Debug\net6.0\CaseStage.Library.csproj.CoreCompileInputs.cache
+C:\projetos\case-stage\server\CaseStage.Library\obj\Debug\net6.0\CaseStage.Library.dll
+C:\projetos\case-stage\server\CaseStage.Library\obj\Debug\net6.0\refint\CaseStage.Library.dll
+C:\projetos\case-stage\server\CaseStage.Library\obj\Debug\net6.0\CaseStage.Library.pdb
+C:\projetos\case-stage\server\CaseStage.Library\obj\Debug\net6.0\ref\CaseStage.Library.dll

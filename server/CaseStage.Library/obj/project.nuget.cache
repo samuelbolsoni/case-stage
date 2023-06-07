@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "4KAjv/CDaERfNAfKiDVe7NHEiYYWgTYWRUVj5uTlf4bVga1B+rKyrJZLdmTPzyHP0hVIwp9sSJHsoub68USfGg==",
+  "success": true,
+  "projectFilePath": "C:\\projetos\\case-stage\\server\\CaseStage.Library\\CaseStage.Library.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\samue\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
