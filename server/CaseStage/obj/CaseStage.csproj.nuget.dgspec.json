@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\projetos\\case-stage\\server_new\\CaseStage\\CaseStage.csproj": {}
+    "C:\\projetos\\case-stage\\server\\CaseStage\\CaseStage.csproj": {}
   },
   "projects": {
-    "C:\\projetos\\case-stage\\server_new\\CaseStage\\CaseStage.csproj": {
+    "C:\\projetos\\case-stage\\server\\CaseStage\\CaseStage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\projetos\\case-stage\\server_new\\CaseStage\\CaseStage.csproj",
+        "projectUniqueName": "C:\\projetos\\case-stage\\server\\CaseStage\\CaseStage.csproj",
         "projectName": "CaseStage",
-        "projectPath": "C:\\projetos\\case-stage\\server_new\\CaseStage\\CaseStage.csproj",
+        "projectPath": "C:\\projetos\\case-stage\\server\\CaseStage\\CaseStage.csproj",
         "packagesPath": "C:\\Users\\samue\\.nuget\\packages\\",
-        "outputPath": "C:\\projetos\\case-stage\\server_new\\CaseStage\\obj\\",
+        "outputPath": "C:\\projetos\\case-stage\\server\\CaseStage\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\samue\\AppData\\Roaming\\NuGet\\NuGet.Config",
