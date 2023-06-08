@@ -1,7 +1,5 @@
 ﻿using CaseStage.API.Data;
-using CaseStage.Application.Areas.Commands;
 using CaseStage.Application.Areas.Models;
-using CaseStage.Application.Areas.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -21,22 +19,52 @@ namespace CaseStage.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<AreaModel>>> Get()
+        public async Task<ActionResult<List<AreaModel>>> RetrieveAll()
         {
             return Ok(await _dataContext.Areas.ToListAsync());
-            return await _mediator.Send(new GetAreaListQuery());
-        }
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult<AreaModel>> GetById(int id)
-        {
-            return await _mediator.Send(new GetAreaByIdQuery(id));
+            //return await _mediator.Send(new GetAreaListQuery());
         }
 
         [HttpPost]
-        public async Task<ActionResult<AreaModel>> AddArea(AreaModel areaModel)
+        public async Task<ActionResult<List<AreaModel>>> CreateArea(AreaModel area)
         {
-            return await _mediator.Send(new AddAreaCommand(areaModel));
+            _dataContext.Areas.Add(area);
+            await _dataContext.SaveChangesAsync();
+
+            return Ok(await _dataContext.Areas.ToListAsync());
         }
+
+        [HttpPut]
+        public async Task<ActionResult<List<AreaModel>>> UpdateArea(AreaModel area)
+        {
+            var dbArea = await _dataContext.Areas.FindAsync(area.Id);
+
+            if (dbArea == null)
+                return BadRequest("Area nao encontrada.");
+
+            dbArea.Name = area.Name;
+            dbArea.Active = area.Active;
+            dbArea.UpdatedAt = DateTime.Now;
+
+            await _dataContext.SaveChangesAsync();
+
+            return Ok(await _dataContext.Areas.ToListAsync());
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<List<AreaModel>>> DeleteArea(int id)
+        {
+            var dbArea = await _dataContext.Areas.FindAsync(id);
+
+            if (dbArea == null)
+                return BadRequest("Area nao encontrada.");
+
+            _dataContext.Areas.Remove(dbArea);
+
+            await _dataContext.SaveChangesAsync();
+
+            return Ok(await _dataContext.Areas.ToListAsync());
+        }
+
     }
 }

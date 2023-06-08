@@ -47,6 +47,10 @@
             "MediatR": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.5, )"
             }
           },
           "imports": [

@@ -10,6 +10,7 @@ import { AreaService } from './services/area.service';
 export class AppComponent {
   title = 'CaseStage.UI';
   areas: Area[] = [];
+  areaToEdit?: Area;
 
   constructor(private areaService: AreaService) {}
 
@@ -17,5 +18,17 @@ export class AppComponent {
     this.areaService
         .GetAreas()
         .subscribe((result: Area[]) => (this.areas = result));
+  }
+
+  updateAreaList(areas: Area[]) {
+    this.areas = areas;
+  }
+  
+  initNewArea() {
+    this.areaToEdit = new Area();
+  }
+
+  editArea(area: Area) {
+    this.areaToEdit = area;
   }
 }

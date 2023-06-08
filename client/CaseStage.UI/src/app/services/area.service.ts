@@ -16,4 +16,24 @@ export class AreaService {
   public GetAreas() : Observable<Area[]> {
     return this.http.get<Area[]>(`${environment.apiUrl}/${this.url}`);
   }
+
+  public updateArea(area:Area) : Observable<Area[]> {
+    return this.http.put<Area[]>(
+      `${environment.apiUrl}/${this.url}`,
+      area
+    );
+  }
+
+  public createArea(area:Area) : Observable<Area[]> {
+    return this.http.post<Area[]>(
+      `${environment.apiUrl}/${this.url}`,
+      area
+    );
+  }
+
+  public deleteArea(area:Area) : Observable<Area[]> {
+    return this.http.delete<Area[]>(
+      `${environment.apiUrl}/${this.url}/${area.id}`
+    );
+  }
 }

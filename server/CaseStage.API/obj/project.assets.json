@@ -269,6 +269,18 @@
           }
         }
       },
+      "Microsoft.EntityFrameworkCore.Tools/7.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "7.0.5"
+        },
+        "compile": {
+          "lib/net6.0/_._": {}
+        },
+        "runtime": {
+          "lib/net6.0/_._": {}
+        }
+      },
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
         "type": "package",
         "build": {
@@ -1269,28 +1281,14 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "CreateStage.Domain": "1.0.0",
-          "MediatR": "9.0.0"
+          "MediatR": "9.0.0",
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.5"
         },
         "compile": {
           "bin/placeholder/CaseStage.Application.dll": {}
         },
         "runtime": {
           "bin/placeholder/CaseStage.Application.dll": {}
-        }
-      },
-      "CaseStage.Data.EFCore/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "CaseStage.Application": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "7.0.5",
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5"
-        },
-        "compile": {
-          "bin/placeholder/CaseStage.Data.EFCore.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/CaseStage.Data.EFCore.dll": {}
         }
       },
       "CreateStage.Domain/1.0.0": {
@@ -1647,6 +1645,31 @@
         "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.xml",
         "microsoft.entityframeworkcore.sqlserver.7.0.5.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlserver.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.Tools/7.0.5": {
+      "sha512": "OV/PUGBVSbQVd2daTeXoMBoao2qtfBgT2TuaYo48xRYUS2gH++f8OFiZc6zwASqkMKgs1/t5uVlxgKl18m/1Fw==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.tools/7.0.5",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/_._",
+        "microsoft.entityframeworkcore.tools.7.0.5.nupkg.sha512",
+        "microsoft.entityframeworkcore.tools.nuspec",
+        "tools/EntityFrameworkCore.PS2.psd1",
+        "tools/EntityFrameworkCore.PS2.psm1",
+        "tools/EntityFrameworkCore.psd1",
+        "tools/EntityFrameworkCore.psm1",
+        "tools/about_EntityFrameworkCore.help.txt",
+        "tools/init.ps1",
+        "tools/net461/any/ef.exe",
+        "tools/net461/win-arm64/ef.exe",
+        "tools/net461/win-x86/ef.exe",
+        "tools/netcoreapp2.0/any/ef.dll",
+        "tools/netcoreapp2.0/any/ef.runtimeconfig.json"
       ]
     },
     "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
@@ -3865,11 +3888,6 @@
       "path": "../CaseStage.Library/CaseStage.Application.csproj",
       "msbuildProject": "../CaseStage.Library/CaseStage.Application.csproj"
     },
-    "CaseStage.Data.EFCore/1.0.0": {
-      "type": "project",
-      "path": "../CaseStage.Data.EFCore/CaseStage.Data.EFCore.csproj",
-      "msbuildProject": "../CaseStage.Data.EFCore/CaseStage.Data.EFCore.csproj"
-    },
     "CreateStage.Domain/1.0.0": {
       "type": "project",
       "path": "../CreateStage.Domain/CreateStage.Domain.csproj",
@@ -3879,10 +3897,11 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "CaseStage.Application >= 1.0.0",
-      "CaseStage.Data.EFCore >= 1.0.0",
       "MediatR.Extensions.Microsoft.DependencyInjection >= 9.0.0",
       "Microsoft.EntityFrameworkCore >= 7.0.5",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.5",
+      "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.5",
+      "Microsoft.EntityFrameworkCore.Tools >= 7.0.5",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.18.1",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
@@ -3915,9 +3934,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\projetos\\case-stage\\server\\CaseStage.Data.EFCore\\CaseStage.Data.EFCore.csproj": {
-              "projectPath": "C:\\projetos\\case-stage\\server\\CaseStage.Data.EFCore\\CaseStage.Data.EFCore.csproj"
-            },
             "C:\\projetos\\case-stage\\server\\CaseStage.Library\\CaseStage.Application.csproj": {
               "projectPath": "C:\\projetos\\case-stage\\server\\CaseStage.Library\\CaseStage.Application.csproj"
             }
@@ -3943,6 +3959,16 @@
             "version": "[7.0.5, )"
           },
           "Microsoft.EntityFrameworkCore.Design": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[7.0.5, )"
+          },
+          "Microsoft.EntityFrameworkCore.SqlServer": {
+            "target": "Package",
+            "version": "[7.0.5, )"
+          },
+          "Microsoft.EntityFrameworkCore.Tools": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",

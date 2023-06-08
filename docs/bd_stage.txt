@@ -39,6 +39,6 @@ Estrutura banco de dados CaseStage
 	IdProcesso - (Guid) not null
 	IdSistema - (Guid) not null
 	
-- Relacionamento Processo - Docs
+- Processo - Docs
 	IdProcesso - (Guid) not null
 	File - (string) not null

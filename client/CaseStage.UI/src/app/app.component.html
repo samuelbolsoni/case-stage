@@ -1,9 +1,12 @@
+<button (click)="initNewArea()">Create new area</button>
+
 <table>
   <thead>
     <th>Name</th>
     <th>Is Active</th>
     <th>Created At</th>
     <th>Updated At</th>
+    <th></th>
   </thead>
   <tbody>
     <tr *ngFor="let area of areas">
@@ -11,6 +14,9 @@
       <td>{{area.active}}</td>
       <td>{{area.createdAt}}</td>
       <td>{{area.updatedAt}}</td>
+      <td><button (click)="editArea(area)">Edit</button></td>
     </tr>
   </tbody>
 </table>
+
+<app-edit [area]="areaToEdit" (areasUpdated)="updateAreaList($event)"></app-edit>

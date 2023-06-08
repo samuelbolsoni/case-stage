@@ -1,0 +1,14 @@
+<div *ngIf="area">
+<h2>{{area.name}}</h2>
+<div>
+    Name:
+    <input [(ngModel)]="area.name" placeholder="Name" />
+</div>
+<div>
+    Active:
+    <input [(ngModel)]="area.active" placeholder="Active" />
+</div>
+<button (click)="updateArea(area)" *ngIf="area.id">Save</button>
+<button (click)="deleteArea(area)" *ngIf="area.id">Delete</button>
+<button (click)="createArea(area)" *ngIf="!area.id">New</button>
+</div>

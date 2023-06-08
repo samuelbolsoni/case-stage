@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Q+Bs+Kpiof6yX646qPzM9aXRx6L38VDg6fvbStSG9yIYDDoZWWBCTaDFUN8wvst+kqM+vcRQzlGb6B816/Zt+A==",
+  "dgSpecHash": "Iy0JjcaT2uVF8jpH1b9jGGX43KZMH3GQ3MLmrk9G/xRUT8pEYJO4DvxDlco99sDYyldvLCzvwXmJHx/7/LHdKw==",
   "success": true,
   "projectFilePath": "C:\\projetos\\case-stage\\server\\CaseStage.API\\CaseStage.API.csproj",
   "expectedPackageFiles": [
@@ -19,6 +19,7 @@
     "C:\\Users\\samue\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.5\\microsoft.entityframeworkcore.design.7.0.5.nupkg.sha512",
     "C:\\Users\\samue\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.5\\microsoft.entityframeworkcore.relational.7.0.5.nupkg.sha512",
     "C:\\Users\\samue\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\7.0.5\\microsoft.entityframeworkcore.sqlserver.7.0.5.nupkg.sha512",
+    "C:\\Users\\samue\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\7.0.5\\microsoft.entityframeworkcore.tools.7.0.5.nupkg.sha512",
     "C:\\Users\\samue\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\samue\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\samue\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
