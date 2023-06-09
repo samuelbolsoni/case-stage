@@ -24,7 +24,12 @@ namespace CaseStage.API.Features.AreaFeatures.Commands
                 area.Name = command.Name;
                 area.Active = command.Active;
 
-                return _areaRepository.Create(area).Id;
+                var result = _areaRepository.Create(area);
+
+                if (result.IsFaulted)
+                    throw new Exception("Erro ao criar Area.");
+
+                return area.Id;
             }
         }
     }

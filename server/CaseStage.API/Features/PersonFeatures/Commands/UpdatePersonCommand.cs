@@ -31,8 +31,13 @@ namespace CaseStage.API.Features.PersonFeatures.Commands
                     person.Name = command.Name;
                     person.Email = command.Email;
                     person.Active = command.Active;
+                    person.UpdatedAt = DateTime.Now;
 
-                    await _personRepository.Update(person);
+                    var result = _personRepository.Update(person);
+
+                    if (result.IsFaulted)
+                        throw new Exception("Erro ao atualizar Pessoa.");
+
                     return person.Id;
                 }
             }

@@ -7,8 +7,11 @@ namespace CaseStage.API.Context
     {
         DbSet<Area> Areas { get; set; }
         DbSet<Person> Persons { get; set; }
-        //DbSet<SystemApp> SystemApps { get; set; }
+        DbSet<SystemApp> SystemApps { get; set; }
         DbSet<Proccess> Proccess { get; set; }
+        DbSet<ProccessFile> ProccessFiles { get; set; }
+        DbSet<ProccessPerson> ProccessPerson { get; set; }
+        DbSet<ProccessSystem> ProccessSystems { get; set; }
 
         Task<int> SaveChanges();
     }

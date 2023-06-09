@@ -33,6 +33,9 @@ builder.Services.AddCors(options => options.AddPolicy(name: "AreaOrigins",
 builder.Services.AddTransient<IApplicationContext, ApplicationContext>();
 builder.Services.AddTransient<IAreaRepository, AreaRepository>();
 builder.Services.AddTransient<IPersonRepository, PersonRepository>();
+builder.Services.AddTransient<ISystemAppRepository, SystemAppRepository>();
+builder.Services.AddTransient<IProccessRepository, ProccessRepository>();
+
 //Mediator
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 

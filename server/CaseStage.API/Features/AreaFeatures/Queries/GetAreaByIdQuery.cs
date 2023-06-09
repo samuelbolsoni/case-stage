@@ -18,7 +18,6 @@ namespace CaseStage.API.Features.AreaFeatures.Queries
             public async Task<Area> Handle(GetAreaByIdQuery query, CancellationToken cancellationToken)
             {
                 return await _areaRepository.GetAreaById(query.Id);
-               
             }
         }
     }

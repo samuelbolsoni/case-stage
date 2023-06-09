@@ -8,6 +8,8 @@
 
         //Foreign keys
         public int ProccessId { get; set; }
+        /*
         public Proccess Proccess { get; set; }
+        */
     }
 }

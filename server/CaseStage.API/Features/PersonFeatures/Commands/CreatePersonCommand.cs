@@ -26,7 +26,12 @@ namespace CaseStage.API.Features.PersonFeatures.Commands
                 person.Email = command.Email;
                 person.Active = command.Active;
 
-                return _personRepository.Create(person).Id;
+                var result = _personRepository.Create(person);
+
+                if (result.IsFaulted)
+                    throw new Exception("Erro ao criar Pessoa.");
+
+                return person.Id;
             }
         }
     }

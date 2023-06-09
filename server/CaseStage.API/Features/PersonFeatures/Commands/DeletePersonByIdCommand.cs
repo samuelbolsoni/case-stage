@@ -22,7 +22,10 @@ namespace CaseStage.API.Features.PersonFeatures.Commands
 
                 if (area == null) return default;
 
-                _personRepository.Delete(area);
+                var result = _personRepository.Delete(area);
+
+                if (result.IsFaulted)
+                    throw new Exception("Erro ao deletar Pessoa.");
 
                 return area.Id;
             }

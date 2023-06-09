@@ -9,7 +9,6 @@ namespace CaseStage.API.Models
         [Required]
         [MaxLength(255)]
         public string Name { get; set; } = string.Empty;
-        [MaxLength(800)]
         public bool Active { get; set; } = true;
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;

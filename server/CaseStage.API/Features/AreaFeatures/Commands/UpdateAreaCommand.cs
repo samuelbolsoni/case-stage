@@ -1,5 +1,4 @@
-﻿using CaseStage.API.Context;
-using CaseStage.API.Infrastructure.Interfaces;
+﻿using CaseStage.API.Infrastructure.Interfaces;
 using MediatR;
 
 namespace CaseStage.API.Features.AreaFeatures.Commands
@@ -30,8 +29,13 @@ namespace CaseStage.API.Features.AreaFeatures.Commands
                 {
                     area.Name = command.Name;
                     area.Active = command.Active;
+                    area.UpdatedAt = DateTime.Now;
 
-                    await _areaRepository.Update(area);
+                    var result = _areaRepository.Update(area);
+
+                    if (result.IsFaulted)
+                        throw new Exception("Erro ao criar Area.");
+
                     return area.Id;
                 }
             }

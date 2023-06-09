@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CaseStage.API.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230609140117_Initial")]
+    [Migration("20230609185208_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -161,11 +161,19 @@ namespace CaseStage.API.Migrations
 
             modelBuilder.Entity("CaseStage.API.Models.ProccessPerson", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<int>("PersonId")
                         .HasColumnType("int");
 
                     b.Property<int>("ProccessId")
                         .HasColumnType("int");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("PersonId");
 
@@ -176,11 +184,19 @@ namespace CaseStage.API.Migrations
 
             modelBuilder.Entity("CaseStage.API.Models.ProccessSystem", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<int>("ProccessId")
                         .HasColumnType("int");
 
                     b.Property<int>("SystemId")
                         .HasColumnType("int");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("ProccessId");
 
@@ -214,7 +230,7 @@ namespace CaseStage.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SystemsApp");
+                    b.ToTable("SystemApps");
                 });
 
             modelBuilder.Entity("CaseStage.API.Models.Proccess", b =>

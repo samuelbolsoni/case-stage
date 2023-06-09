@@ -45,7 +45,7 @@ namespace CaseStage.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SystemsApp",
+                name: "SystemApps",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -57,7 +57,7 @@ namespace CaseStage.API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SystemsApp", x => x.Id);
+                    table.PrimaryKey("PK_SystemApps", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -72,7 +72,9 @@ namespace CaseStage.API.Migrations
                     Active = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AreaId = table.Column<int>(type: "int", nullable: false)
+                    AreaId = table.Column<int>(type: "int", nullable: false),
+                    PersonId = table.Column<int>(type: "int", nullable: true),
+                    SystemAppId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -83,6 +85,16 @@ namespace CaseStage.API.Migrations
                         principalTable: "Areas",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Proccess_Persons_PersonId",
+                        column: x => x.PersonId,
+                        principalTable: "Persons",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Proccess_SystemApps_SystemAppId",
+                        column: x => x.SystemAppId,
+                        principalTable: "SystemApps",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -110,11 +122,14 @@ namespace CaseStage.API.Migrations
                 name: "ProccessPerson",
                 columns: table => new
                 {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     ProccessId = table.Column<int>(type: "int", nullable: false),
                     PersonId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_ProccessPerson", x => x.Id);
                     table.ForeignKey(
                         name: "FK_ProccessPerson_Persons_PersonId",
                         column: x => x.PersonId,
@@ -133,11 +148,14 @@ namespace CaseStage.API.Migrations
                 name: "ProccessSystems",
                 columns: table => new
                 {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     ProccessId = table.Column<int>(type: "int", nullable: false),
                     SystemId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_ProccessSystems", x => x.Id);
                     table.ForeignKey(
                         name: "FK_ProccessSystems_Proccess_ProccessId",
                         column: x => x.ProccessId,
@@ -145,9 +163,9 @@ namespace CaseStage.API.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ProccessSystems_SystemsApp_SystemId",
+                        name: "FK_ProccessSystems_SystemApps_SystemId",
                         column: x => x.SystemId,
-                        principalTable: "SystemsApp",
+                        principalTable: "SystemApps",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -156,6 +174,16 @@ namespace CaseStage.API.Migrations
                 name: "IX_Proccess_AreaId",
                 table: "Proccess",
                 column: "AreaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Proccess_PersonId",
+                table: "Proccess",
+                column: "PersonId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Proccess_SystemAppId",
+                table: "Proccess",
+                column: "SystemAppId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProccessFiles_ProccessId",
@@ -205,7 +233,7 @@ namespace CaseStage.API.Migrations
                 name: "Persons");
 
             migrationBuilder.DropTable(
-                name: "SystemsApp");
+                name: "SystemApps");
         }
     }
 }

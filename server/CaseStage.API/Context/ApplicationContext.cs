@@ -8,7 +8,7 @@ namespace CaseStage.API.Context
         public DbSet<Area> Areas { get; set; }
         public DbSet<Proccess> Proccess { get; set; }
         public DbSet<Person> Persons { get; set; }
-        //public DbSet<SystemApp> SystemsApps { get; set; }
+        public DbSet<SystemApp> SystemApps { get; set; }
         public DbSet<ProccessFile> ProccessFiles { get; set; }
         public DbSet<ProccessPerson> ProccessPerson { get; set; }
         public DbSet<ProccessSystem> ProccessSystems { get; set; }
@@ -17,7 +17,7 @@ namespace CaseStage.API.Context
 
         public async Task<int> SaveChanges()
         {
-            return await base.SaveChangesAsync();
+            return base.SaveChanges();
         }
     }
 }
