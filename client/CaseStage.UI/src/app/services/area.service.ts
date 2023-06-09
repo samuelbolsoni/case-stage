@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AreaService {
 
-  private url = "Areas";
+  private url = "Area";
 
   constructor(private http: HttpClient) { }
 

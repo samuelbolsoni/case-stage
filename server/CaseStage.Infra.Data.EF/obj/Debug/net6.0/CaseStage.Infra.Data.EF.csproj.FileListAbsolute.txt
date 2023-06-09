@@ -1,5 +1,0 @@
-C:\projetos\case-stage\server_new\CaseStage.Infra.Data.EF\obj\Debug\net6.0\CaseStage.Infra.Data.EF.csproj.AssemblyReference.cache
-C:\projetos\case-stage\server_new\CaseStage.Infra.Data.EF\obj\Debug\net6.0\CaseStage.Infra.Data.EF.GeneratedMSBuildEditorConfig.editorconfig
-C:\projetos\case-stage\server_new\CaseStage.Infra.Data.EF\obj\Debug\net6.0\CaseStage.Infra.Data.EF.AssemblyInfoInputs.cache
-C:\projetos\case-stage\server_new\CaseStage.Infra.Data.EF\obj\Debug\net6.0\CaseStage.Infra.Data.EF.AssemblyInfo.cs
-C:\projetos\case-stage\server_new\CaseStage.Infra.Data.EF\obj\Debug\net6.0\CaseStage.Infra.Data.EF.csproj.CoreCompileInputs.cache
