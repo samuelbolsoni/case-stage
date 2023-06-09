@@ -1,7 +1,5 @@
-﻿using CaseStage.API.Context;
-using CaseStage.API.Infrastructure.Interfaces;
+﻿using CaseStage.API.Infrastructure.Interfaces;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace CaseStage.API.Features.AreaFeatures.Commands
 {

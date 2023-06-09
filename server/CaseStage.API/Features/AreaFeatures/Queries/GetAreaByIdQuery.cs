@@ -8,10 +8,10 @@ namespace CaseStage.API.Features.AreaFeatures.Queries
     public class GetAreaByIdQuery : IRequest<Area>
     {
         public int Id { get; set; }
-        public class GetProductByIdQueryHandler : IRequestHandler<GetAreaByIdQuery, Area>
+        public class GetAreaByIdQueryHandler : IRequestHandler<GetAreaByIdQuery, Area>
         {
             private readonly IAreaRepository _areaRepository;
-            public GetProductByIdQueryHandler(IAreaRepository areaRepository)
+            public GetAreaByIdQueryHandler(IAreaRepository areaRepository)
             {
                 _areaRepository = areaRepository;
             }

@@ -1,11 +1,10 @@
-﻿using CaseStage.API.Context;
-using CaseStage.API.Infrastructure.Interfaces;
+﻿using CaseStage.API.Infrastructure.Interfaces;
 using CaseStage.API.Models;
 using MediatR;
 
 namespace CaseStage.API.Features.AreaFeatures.Commands
 {
-    
+
     public class CreateAreaCommand : IRequest<int>
     {
         public string Name { get; set; }
