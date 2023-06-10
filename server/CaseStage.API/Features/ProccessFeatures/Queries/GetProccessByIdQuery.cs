@@ -1,5 +1,4 @@
-﻿using CaseStage.API.Context;
-using CaseStage.API.Infrastructure.Interfaces;
+﻿using CaseStage.API.Infrastructure.Interfaces;
 using CaseStage.API.Models;
 using MediatR;
 
@@ -18,7 +17,6 @@ namespace CaseStage.API.Features.ProccessFeatures.Queries
             public async Task<Proccess> Handle(GetProccessByIdQuery query, CancellationToken cancellationToken)
             {
                 return await _proccessRepository.GetProccessById(query.Id);
-               
             }
         }
     }

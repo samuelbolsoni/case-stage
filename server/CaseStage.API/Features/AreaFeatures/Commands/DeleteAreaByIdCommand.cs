@@ -1,6 +1,4 @@
 ﻿using CaseStage.API.Infrastructure.Interfaces;
-using CaseStage.API.Infrastructure.Repositories;
-using CaseStage.API.Models;
 using MediatR;
 
 namespace CaseStage.API.Features.AreaFeatures.Commands

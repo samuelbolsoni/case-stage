@@ -3,7 +3,6 @@ using MediatR;
 
 namespace CaseStage.API.Features.ProccessFeatures.Commands
 {
-
     public class UpdateProccessCommand : IRequest<int>
     {
         public int Id { get; set; }

@@ -3,7 +3,6 @@ using MediatR;
 
 namespace CaseStage.API.Features.AreaFeatures.Commands
 {
-
     public class UpdateAreaCommand : IRequest<int>
     {
         public int Id { get; set; }

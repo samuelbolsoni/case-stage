@@ -9,6 +9,7 @@
         //Foreign keys
         public int ProccessId { get; set; }
         /*
+         * * Entity Migration
         public Proccess Proccess { get; set; }
         */
     }

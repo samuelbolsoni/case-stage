@@ -79,7 +79,123 @@ Entity
 
 - testar e verificar idParent
 
-- update processo, deletar tudo e regravar tabs auxiliares
-
 - revisão geral e doc swagger
 
+- update processo, deletar tudo e regravar tabs auxiliares
+
+{
+  "idParent": 8,
+  "areaId": 0,
+  "description": "subprocesso teste",
+  "documentation": "docs sub",
+  "active": true,
+  "persons": [
+    {
+      "id": 0,
+      "name": "string",
+      "email": "string",
+      "active": true,
+      "createdAt": "2023-06-10T12:08:08.093Z",
+      "updatedAt": "2023-06-10T12:08:08.093Z",
+      "proccess": [
+        {
+          "id": 0,
+          "idParent": 0,
+          "description": "string",
+          "documentation": "string",
+          "active": true,
+          "createdAt": "2023-06-10T12:08:08.093Z",
+          "updatedAt": "2023-06-10T12:08:08.093Z",
+          "persons": [
+            {
+              "id": 0,
+              "proccessId": 0,
+              "personId": 0
+            }
+          ],
+          "systems": [
+            {
+              "id": 0,
+              "proccessId": 0,
+              "systemId": 0
+            }
+          ],
+          "files": [
+            {
+              "id": 0,
+              "name": "string",
+              "fileName": "string",
+              "proccessId": 0
+            }
+          ],
+          "areaId": 0,
+          "area": {
+            "id": 0,
+            "name": "string",
+            "active": true,
+            "createdAt": "2023-06-10T12:08:08.093Z",
+            "updatedAt": "2023-06-10T12:08:08.093Z"
+          }
+        }
+      ]
+    }
+  ],
+  "systemApps": [
+    {
+      "id": 1,
+      "name": "string",
+      "active": true,
+      "createdAt": "2023-06-10T12:08:08.093Z",
+      "updatedAt": "2023-06-10T12:08:08.094Z",
+      "proccess": [
+        {
+          "id": 0,
+          "idParent": 0,
+          "description": "string",
+          "documentation": "string",
+          "active": true,
+          "createdAt": "2023-06-10T12:08:08.094Z",
+          "updatedAt": "2023-06-10T12:08:08.094Z",
+          "persons": [
+            {
+              "id": 0,
+              "proccessId": 0,
+              "personId": 0
+            }
+          ],
+          "systems": [
+            {
+              "id": 0,
+              "proccessId": 0,
+              "systemId": 0
+            }
+          ],
+          "files": [
+            {
+              "id": 0,
+              "name": "string",
+              "fileName": "string",
+              "proccessId": 0
+            }
+          ],
+          "areaId": 0,
+          "area": {
+            "id": 0,
+            "name": "string",
+            "active": true,
+            "createdAt": "2023-06-10T12:08:08.094Z",
+            "updatedAt": "2023-06-10T12:08:08.094Z"
+          }
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "id": 0,
+      "name": "arquivo1",
+      "fileName": "arquivo1",
+      "proccessId": 0
+    }
+  ]
+}

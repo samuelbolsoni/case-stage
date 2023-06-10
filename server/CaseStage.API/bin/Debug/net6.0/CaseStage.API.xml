@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CaseStage.API</name>
+    </assembly>
+    <members>
+        <member name="M:CaseStage.API.Controllers.AreaController.Create(CaseStage.API.Features.AreaFeatures.Commands.CreateAreaCommand)">
+            <summary>
+            Criar uma nova área
+            </summary>
+            <returns>ID da área</returns>
+            <response code="200">Retorna a nova área criada</response>
+            <response code="400">Área é nula</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.AreaController.GetAll">
+            <summary>
+            Retorna todas as áreas
+            </summary>
+            <returns>List de Area</returns>
+            <response code="200">Retorna todas as áreas</response>
+            <response code="400">Área é nula</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.AreaController.GetById(System.Int32)">
+            <summary>
+            Retorna a área pelo ID
+            </summary>
+            <param name="id"></param>
+            <returns>Area</returns>
+            <response code="200">Retorna a área pelo ID</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.AreaController.Delete(System.Int32)">
+            <summary>
+            Deleta a área pelo ID
+            </summary>
+            <param name="id"></param>
+            <returns>ID da Area</returns>
+            <response code="200">Deleta a área pelo ID</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.AreaController.Update(System.Int32,CaseStage.API.Features.AreaFeatures.Commands.UpdateAreaCommand)">
+            <summary>
+            Atualiza a área pelo ID
+            </summary>
+            <param name="id">ID da Area</param>
+            <param name="command">UpdateAreaCommand</param>
+            <returns>ID da Area</returns>
+            <response code="200">Atualiza a área pelo ID</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.PersonController.Create(CaseStage.API.Features.PersonFeatures.Commands.CreatePersonCommand)">
+            <summary>
+            Criar uma nova pessoa
+            </summary>
+            <returns>ID da pessoa</returns>
+            <response code="200">Retorna a nova pessoa criada</response>
+            <response code="400">Pessoa é nula</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.PersonController.GetAll">
+            <summary>
+            Retorna todas as pessoas
+            </summary>
+            <returns>List de Pessoas</returns>
+            <response code="200">Retorna todas as pessoas</response>
+            <response code="400">Pessoa é nula</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.PersonController.GetById(System.Int32)">
+            <summary>
+            Retorna a pessoa pelo ID
+            </summary>
+            <param name="id"></param>
+            <returns>Pessoa</returns>
+            <response code="200">Retorna a pessoa pelo ID</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.PersonController.Delete(System.Int32)">
+            <summary>
+            Deleta a pessoa pelo ID
+            </summary>
+            <param name="id"></param>
+            <returns>Pessoa</returns>
+            <response code="200">Deleta a pessoa pelo ID</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.PersonController.Update(System.Int32,CaseStage.API.Features.PersonFeatures.Commands.UpdatePersonCommand)">
+            <summary>
+            Atualiza a pessoa pelo ID
+            </summary>
+            <param name="id">ID da Pessoa</param>
+            <param name="command">UpdatePersonCommand</param>
+            <returns>Pessoa</returns>
+            <response code="200">Atualiza a pessoa pelo ID</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.ProccessController.Create(CaseStage.API.Features.ProccessFeatures.Commands.CreateProccessCommand)">
+            <summary>
+            Criar um novo processo
+            </summary>
+            <returns>ID do processo</returns>
+            <response code="200">Retorna o novo processo criada</response>
+            <response code="400">Processo é nulo</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.ProccessController.GetAll">
+            <summary>
+            Retorna todos os processos
+            </summary>
+            <returns>List de Processos</returns>
+            <response code="200">Retorna todas os processos</response>
+            <response code="400">Processo é nulo</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.ProccessController.GetById(System.Int32)">
+            <summary>
+            Retorna o processo pelo ID
+            </summary>
+            <param name="id"></param>
+            <returns>Sistema</returns>
+            <response code="200">Retorna o processo pelo ID</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.ProccessController.Delete(System.Int32)">
+            <summary>
+            Deleta o processo pelo ID
+            </summary>
+            <param name="id"></param>
+            <returns>Sistema</returns>
+            <response code="200">Deleta o processo pelo ID</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.ProccessController.Update(System.Int32,CaseStage.API.Features.ProccessFeatures.Commands.UpdateProccessCommand)">
+            <summary>
+            Atualiza o processo pelo ID
+            </summary>
+            <param name="id">ID do processo</param>
+            <param name="command">UpdateProccessCommand</param>
+            <returns>Sistema</returns>
+            <response code="200">Atualiza o processo pelo ID</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.SystemAppController.Create(CaseStage.API.Features.SystemAppFeatures.Commands.CreateSystemAppCommand)">
+            <summary>
+            Criar um novo sistema
+            </summary>
+            <returns>ID do sistema</returns>
+            <response code="200">Retorna o novo sistema criada</response>
+            <response code="400">Sistema é nulo</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.SystemAppController.GetAll">
+            <summary>
+            Retorna todos os sistemas
+            </summary>
+            <returns>List de Sistemas</returns>
+            <response code="200">Retorna todas os sistemas</response>
+            <response code="400">Sistema é nulo</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.SystemAppController.GetById(System.Int32)">
+            <summary>
+            Retorna os sistema pelo ID
+            </summary>
+            <param name="id"></param>
+            <returns>Sistema</returns>
+            <response code="200">Retorna o sistema pelo ID</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.SystemAppController.Delete(System.Int32)">
+            <summary>
+            Deleta os sistema pelo ID
+            </summary>
+            <param name="id"></param>
+            <returns>Sistema</returns>
+            <response code="200">Deleta o sistema pelo ID</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.SystemAppController.Update(System.Int32,CaseStage.API.Features.SystemAppFeatures.Commands.UpdateSystemAppCommand)">
+            <summary>
+            Atualiza os sistema pelo ID
+            </summary>
+            <param name="id">ID do Sistema</param>
+            <param name="command">UpdateSystemAppCommand</param>
+            <returns>Sistema</returns>
+            <response code="200">Atualiza o sistema pelo ID</response>
+        </member>
+        <member name="T:CaseStage.API.Migrations.Initial">
+            <inheritdoc />
+        </member>
+        <member name="M:CaseStage.API.Migrations.Initial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CaseStage.API.Migrations.Initial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CaseStage.API.Migrations.Initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:CaseStage.API.Migrations.IdAreaShouldBeNull">
+            <inheritdoc />
+        </member>
+        <member name="M:CaseStage.API.Migrations.IdAreaShouldBeNull.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CaseStage.API.Migrations.IdAreaShouldBeNull.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CaseStage.API.Migrations.IdAreaShouldBeNull.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

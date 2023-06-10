@@ -12,7 +12,6 @@ namespace CaseStage.API.Context
         DbSet<ProccessFile> ProccessFiles { get; set; }
         DbSet<ProccessPerson> ProccessPerson { get; set; }
         DbSet<ProccessSystem> ProccessSystems { get; set; }
-
         Task<int> SaveChanges();
     }
 }

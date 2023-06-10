@@ -178,3 +178,5 @@ C:\projetos\case-stage\server\CaseStage.API\obj\Debug\net6.0\refint\CaseStage.AP
 C:\projetos\case-stage\server\CaseStage.API\obj\Debug\net6.0\CaseStage.API.pdb
 C:\projetos\case-stage\server\CaseStage.API\obj\Debug\net6.0\CaseStage.API.genruntimeconfig.cache
 C:\projetos\case-stage\server\CaseStage.API\obj\Debug\net6.0\ref\CaseStage.API.dll
+C:\projetos\case-stage\server\CaseStage.API\bin\Debug\net6.0\CaseStage.API.xml
+C:\projetos\case-stage\server\CaseStage.API\obj\Debug\net6.0\CaseStage.API.xml

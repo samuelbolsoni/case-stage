@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace CaseStage.API.Models
+﻿namespace CaseStage.API.Models
 {
     public class ProccessSystem
     {
@@ -8,6 +6,7 @@ namespace CaseStage.API.Models
         public int ProccessId { get; set; }
         public int SystemId { get; set; }
         /*
+         * * Entity Migration
         public Proccess Proccess { get; set; } = null!;
         public SystemApp System { get; set; } = null!;
         */

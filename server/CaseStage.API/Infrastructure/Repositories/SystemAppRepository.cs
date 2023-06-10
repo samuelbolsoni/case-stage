@@ -40,6 +40,5 @@ namespace CaseStage.API.Infrastructure.Repositories
             _context.SystemApps.Remove(systemApp);
             return _context.SaveChanges();
         }
-
     }
 }

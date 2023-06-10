@@ -9,7 +9,7 @@ namespace CaseStage.API.Models
         public int PersonId { get; set; }
         
         /*
-         * só para entity
+         * Entity Migration
         public Proccess Proccess { get; set; } = null!;
         public Person Person { get; set; } = null!;
         */

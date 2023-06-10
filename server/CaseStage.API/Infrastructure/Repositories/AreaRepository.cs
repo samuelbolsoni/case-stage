@@ -2,7 +2,6 @@
 using CaseStage.API.Infrastructure.Interfaces;
 using CaseStage.API.Models;
 using Microsoft.EntityFrameworkCore;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace CaseStage.API.Infrastructure.Repositories
 {
@@ -41,6 +40,5 @@ namespace CaseStage.API.Infrastructure.Repositories
             _context.Areas.Remove(area);
             return _context.SaveChanges();
         }
-
     }
 }

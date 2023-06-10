@@ -20,7 +20,7 @@ namespace CaseStage.API.Models
         public List<ProccessFile> Files { get; set; }
 
         //Foreign keys
-        public int AreaId { get; set; }
+        public int? AreaId { get; set; }
         public Area Area { get; set; }
     }
 }

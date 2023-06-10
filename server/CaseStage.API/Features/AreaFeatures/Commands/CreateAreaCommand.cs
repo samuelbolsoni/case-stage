@@ -4,7 +4,6 @@ using MediatR;
 
 namespace CaseStage.API.Features.AreaFeatures.Commands
 {
-
     public class CreateAreaCommand : IRequest<int>
     {
         public string Name { get; set; }

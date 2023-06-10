@@ -14,7 +14,6 @@ namespace CaseStage.API.Features.ProccessFeatures.Queries
                 _proccessRepository = proccessRepository;
             }
 
-
             public async Task<IEnumerable<Proccess>> Handle(GetAllProccessQuery query, CancellationToken cancellationToken)
             {
                 var proccessList = await _proccessRepository.GetAllProccess();
