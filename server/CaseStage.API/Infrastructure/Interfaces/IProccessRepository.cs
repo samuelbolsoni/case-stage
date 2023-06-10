@@ -12,5 +12,8 @@ namespace CaseStage.API.Infrastructure.Interfaces
         Task<int> CreateProccessPerson(List<ProccessPerson> proccessPersonList);
         Task<int> CreateProccessSystemApp(List<ProccessSystem> proccessSystemList);
         Task<int> CreateProccessFile(List<ProccessFile> proccessFileList);
+        Task<int> DeleteProccessPersonByProccessId(List<ProccessPerson> proccessPerson);
+        Task<int> DeleteProccessSystemByProccessId(List<ProccessSystem> proccessSystem);
+        Task<int> DeleteProccessFileByProccessId(List<ProccessFile> proccessFile);
     }
 }

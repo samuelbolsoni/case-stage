@@ -68,5 +68,23 @@ namespace CaseStage.API.Infrastructure.Repositories
             _context.ProccessFiles.AddRange(proccessFileList);
             return _context.SaveChanges();
         }
+
+        public Task<int> DeleteProccessPersonByProccessId(List<ProccessPerson> proccessPerson)
+        {
+            _context.ProccessPerson.RemoveRange(proccessPerson);
+            return _context.SaveChanges();
+        }
+
+        public Task<int> DeleteProccessSystemByProccessId(List<ProccessSystem> proccessSystem)
+        {
+            _context.ProccessSystems.RemoveRange(proccessSystem);
+            return _context.SaveChanges();
+        }
+
+        public Task<int> DeleteProccessFileByProccessId(List<ProccessFile> proccessFile)
+        {
+            _context.ProccessFiles.RemoveRange(proccessFile);
+            return _context.SaveChanges();
+        }
     }
 }
