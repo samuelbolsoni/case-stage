@@ -81,10 +81,9 @@ namespace CaseStage.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Update(int id, UpdateSystemAppCommand command)
         {
-            if (id != command.Id)
-            {
-                return BadRequest();
-            }
+            if (command.Id == 0)
+                command.Id = id;
+
             return Ok(await Mediator.Send(command));
         }
     }
