@@ -22,7 +22,8 @@ export class AreaCreateComponent implements OnInit {
 
     ) {
     this.areaForm = this._fb.group({
-      name: ''
+      name: '',
+      active: true
     })
   }
 
@@ -44,6 +45,7 @@ export class AreaCreateComponent implements OnInit {
           }
         })
       } else {
+        console.log(this.areaForm.value);
         this.areaService.createArea(this.areaForm.value).subscribe({
           next: (val: any) => {
             this._coreService.openSnackBar('Area criada com sucesso', 'done')

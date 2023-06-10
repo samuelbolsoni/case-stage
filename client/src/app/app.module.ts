@@ -20,12 +20,15 @@ import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { TranslateBoolPipe } from './utils/pipes/translate-bool.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     AreaComponent,
-    AreaCreateComponent
+    AreaCreateComponent,
+    TranslateBoolPipe
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

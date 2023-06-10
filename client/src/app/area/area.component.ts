@@ -28,8 +28,8 @@ export class AreaComponent implements OnInit {
     private _dialog: MatDialog, 
     private _areaService: AreaService,
     private _coreService: CoreService
-  
-    ) {}
+
+  ) {}
 
   ngOnInit(): void {
     this.getAreaList();
