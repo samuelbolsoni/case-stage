@@ -22,12 +22,25 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { TranslateBoolPipe } from './utils/pipes/translate-bool.pipe';
+import { SystemComponent } from './system/system.component';
+import { SystemCreateComponent } from './system/system-create/system-create.component';
+import { PersonComponent } from './person/person.component';
+import { PersonCreateComponent } from './person/person-create/person-create.component';
+import { ProccessComponent } from './proccess/proccess.component';
+import { ProccessCreateComponent } from './proccess/proccess-create/proccess-create.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AppComponent,
     AreaComponent,
     AreaCreateComponent,
+    SystemComponent,
+    SystemCreateComponent,
+    PersonComponent,
+    PersonCreateComponent,
+    ProccessComponent,
+    ProccessCreateComponent,
     TranslateBoolPipe
   ],
   imports: [
@@ -47,7 +60,8 @@ import { TranslateBoolPipe } from './utils/pipes/translate-bool.pipe';
     MatPaginatorModule,
     MatSortModule,
     MatSnackBarModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

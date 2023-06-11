@@ -11,9 +11,10 @@ namespace CaseStage.API.Features.ProccessFeatures.Commands
         public string Description { get; set; }
         public string Documentation { get; set; }
         public bool Active { get; set; }
-        public List<Person> Persons { get; set; }
-        public List<SystemApp> SystemApps { get; set; }
-        public List<ProccessFile> Files { get; set; }
+        public List<int>? Persons { get; set; }
+        
+        public List<int>? SystemApps { get; set; } = null;
+        //public List<ProccessFile> Files { get; set; } = null;
 
         public class CreateProccessCommandHandler : IRequestHandler<CreateProccessCommand, int>
         {
@@ -26,7 +27,6 @@ namespace CaseStage.API.Features.ProccessFeatures.Commands
             }
             public async Task<int> Handle(CreateProccessCommand command, CancellationToken cancellationToken)
             {
-                
                 //Valida se area foi informada (em caso de não ter processo pai)
                 if (command.AreaId != 0)
                 {
@@ -61,11 +61,11 @@ namespace CaseStage.API.Features.ProccessFeatures.Commands
                 {
                     List<ProccessPerson> proccessPersonToAdd = new List<ProccessPerson>();
 
-                    foreach (var person in command.Persons)
+                    foreach (var idPerson in command.Persons)
                     {
                         proccessPersonToAdd.Add(new ProccessPerson()
                         {
-                            PersonId = person.Id,
+                            PersonId = idPerson,
                             ProccessId = proccess.Id
                         });
                     }
@@ -76,17 +76,17 @@ namespace CaseStage.API.Features.ProccessFeatures.Commands
                 {
                     List<ProccessSystem> proccessSystemToAdd = new List<ProccessSystem>();
 
-                    foreach (var systemApp in command.SystemApps)
+                    foreach (var idSystem in command.SystemApps)
                     {
                         proccessSystemToAdd.Add(new ProccessSystem()
                         {
-                            SystemId = systemApp.Id,
+                            SystemId = idSystem,
                             ProccessId = proccess.Id
                         });
                     }
                     await _proccessRepository.CreateProccessSystemApp(proccessSystemToAdd);
                 }
-
+                /*
                 if (command.Files.Any())
                 {
                     List<ProccessFile> proccessFileToAdd = new List<ProccessFile>();
@@ -102,7 +102,7 @@ namespace CaseStage.API.Features.ProccessFeatures.Commands
                     }
                     await _proccessRepository.CreateProccessFile(proccessFileToAdd);
                 }
-
+                */
                 return proccess.Id;
             }
         }
