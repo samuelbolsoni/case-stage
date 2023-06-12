@@ -11,6 +11,7 @@ import { Person } from 'src/app/person/model/person';
 import { System } from 'src/app/system/model/system';
 import { SystemService } from 'src/app/services/system.service';
 import { Area } from 'src/app/area/model/area';
+import { Proccess } from '../model/proccess';
 
 @Component({
   selector: 'app-proccess-create',
@@ -18,17 +19,26 @@ import { Area } from 'src/app/area/model/area';
   styleUrls: ['./proccess-create.component.css']
 })
 export class ProccessCreateComponent implements OnInit {
+
   proccessForm: FormGroup;
-  areas!: Observable<Area[]>;
+  areasFormControl = new FormControl();
+  personsFormControl = new FormControl();
+  parentsFormControl = new FormControl();
+  systemAppsFormControl = new FormControl();
+
+  areasList!: Observable<Area[]>;
   personsList!: Observable<Person[]>;
   systemsList!: Observable<System[]>;
+  proccessList!: Observable<Proccess[]>;
   
-  persons = new FormControl();
-  systemApps = new FormControl();
-  
+  areaSelected: any;
+  parentSelected: any;
+  personsSelected: any[] = [];
+  systemsSelected: any[] = [];
+
   constructor(
     private _fb: FormBuilder, 
-    private proccessService: ProccessService, 
+    private _proccessService: ProccessService, 
     private _areaService: AreaService,
     private _personService: PersonService,
     private _systemService: SystemService,
@@ -39,6 +49,7 @@ export class ProccessCreateComponent implements OnInit {
     ) {
     this.proccessForm = this._fb.group({
       areas: '',
+      parents: '',
       description: '',
       documentation: '',
       active: true,
@@ -48,9 +59,18 @@ export class ProccessCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.areas = this._areaService.GetAreas();
+    this.areasList = this._areaService.GetAreas();
     this.personsList = this._personService.GetPersons();
     this.systemsList = this._systemService.GetSystems();
+    this.proccessList = this._proccessService.GetProccess();
+
+    this.areaSelected = this.data.areaId;
+    this.parentSelected = this.data.idParent;
+    this.personsSelected = this.data.persons;
+    this.systemsSelected = this.data.systems;
+
+    this.loadDataToSelectFields();
+
     this.proccessForm.patchValue(this.data);
   }
 
@@ -59,13 +79,16 @@ export class ProccessCreateComponent implements OnInit {
       
       var formSubmited = this.proccessForm.value;
 
-      //Parse fields
-      formSubmited.areaId = formSubmited.areas;
-      formSubmited.persons = this.persons.value;
-      formSubmited.systemApps = this.systemApps.value;
+      console.log(formSubmited);
+      
+      //Parse select fields
+      formSubmited.areaId = this.areasFormControl.value;
+      formSubmited.persons = this.personsFormControl.value;
+      formSubmited.systemApps = this.systemAppsFormControl.value;
+      formSubmited.idParent = this.parentsFormControl.value;
 
       if (this.data) {
-        this.proccessService.updateProccess(this.data.id, formSubmited).subscribe({
+        this._proccessService.updateProccess(this.data.id, formSubmited).subscribe({
           next: (val: any) => {
             this._coreService.openSnackBar('Processo atualizado com sucesso')
             this._dialogRef.close(true);
@@ -75,8 +98,7 @@ export class ProccessCreateComponent implements OnInit {
           }
         })
       } else {
-
-        this.proccessService.createProccess(formSubmited).subscribe({
+        this._proccessService.createProccess(formSubmited).subscribe({
           next: () => {
             this._coreService.openSnackBar('Processo criado com sucesso', 'done')
             this._dialogRef.close(true);
@@ -85,8 +107,32 @@ export class ProccessCreateComponent implements OnInit {
             console.error(err);
           }
         })
-        
       }
     }
+  }
+
+  loadDataToSelectFields() {
+
+    //Area
+    const selectedArea: any = this.areaSelected;
+    const selectedParent: any = this.parentSelected;
+    const selectedPersons: any[] = this.personsSelected;
+    const selectedSystems: any[] = this.systemsSelected;
+
+    const loadPersonsToSelect: any[] = [];
+    const loadSystemsToSelect: any[] = [];
+
+    selectedPersons.forEach((name, index, array) => {
+      loadPersonsToSelect.push(array[index].personId);
+    });
+
+    selectedSystems.forEach((name, index, array) => {
+      loadSystemsToSelect.push(array[index].systemId);
+    });
+
+    this.areasFormControl.setValue(selectedArea);
+    this.parentsFormControl.setValue(selectedParent);
+    this.personsFormControl.setValue(loadPersonsToSelect);
+    this.systemAppsFormControl.setValue(loadSystemsToSelect);
   }
 }

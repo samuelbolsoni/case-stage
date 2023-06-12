@@ -44,6 +44,7 @@ export class ProccessComponent implements OnInit {
   }
 
   openEditProccessForm(data:any) {
+    console.log(data);
     const dialogRef = this._dialog.open(ProccessCreateComponent, {
       data,
     });

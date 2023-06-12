@@ -318,5 +318,4 @@ update json
 
 
 
-select 2 angular material ui -0 https://material.angular.io/components/select/overview
-https://www.youtube.com/watch?v=4mKY_yDq64g&t=26s&ab_channel=TechnicalBabaji - 23:00
+resolve multiple select populate

@@ -1,12 +1,31 @@
+.form {
+    width: 800px;
+}
+
+.single-content {
+    padding-top: 10px;
+    width: 100%;
+}
+
+.single-row {
+    width: 750px;
+
+    .single-field {
+        width: 100%;
+    }
+}
+
 .content {
     padding-top: 10px;
+    width: 100%;
 }
+
 .row {
     display: flex;
     gap: 10px;
 
     mat-form-field {
-        width: 100%;
+        width: 50%;
     }
 }
 

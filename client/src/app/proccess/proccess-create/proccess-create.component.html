@@ -1,50 +1,69 @@
 <div mat-dialog-title>
     <h1>Novo Processo</h1>
 </div>
-<form [formGroup]="proccessForm" (ngSubmit)="onFormSubmit()">
-    <div mat-dialog-content class="content">
-        <div class="row">
-            <mat-form-field appearance="outline">
+<form [formGroup]="proccessForm" class="form" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="single-content">
+        <div class="single-row">
+            <mat-form-field appearance="outline" class="single-field">
             <input matInput type="text" placeholder="Descrição" formControlName="description">
             <mat-hint>Informe a descrição do processo</mat-hint>
             </mat-form-field>
-
-            <mat-form-field>
-                <mat-label>Área</mat-label>
-                <mat-select formControlName="areas">
-                  <mat-option *ngFor="let area of areas | async" [value]="area.id">{{area.name}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-
         </div>
     </div>
 
-    <div mat-dialog-content class="content">
-        <div class="row">
-            <mat-form-field appearance="outline">
-                <textarea matInput placeholder="Comment"  formControlName="documentation"></textarea>
+    <div mat-dialog-content class="single-content">
+        <div class="single-row">
+            <mat-form-field class="single-field">
+                <mat-label>Área</mat-label>
+                <mat-select [formControl]="areasFormControl">
+                  <mat-option *ngFor="let area of areasList | async" [value]="area.id">{{area.name}}</mat-option>
+                </mat-select>
+                <mat-hint>Informe a área</mat-hint>
+              </mat-form-field>
+        </div>
+    </div>
+
+    <div mat-dialog-content class="single-content">
+        <div class="single-row">
+            <mat-form-field class="single-field">
+                <mat-label>Processo Pai</mat-label>
+                <mat-select [formControl]="parentsFormControl">
+                  <mat-option *ngFor="let parent of proccessList | async" [value]="parent.id">{{parent.description}}</mat-option>
+                </mat-select>
+                <mat-hint>Informe o processo pai</mat-hint>
+              </mat-form-field>
+        </div>
+    </div>
+
+    <div mat-dialog-content class="single-content">
+        <div class="single-row">
+            <mat-form-field appearance="outline" class="single-field">
+                <textarea matInput placeholder="Documentação"  formControlName="documentation"></textarea>
+                <mat-hint>Documentação e fluxo do processo</mat-hint>
             </mat-form-field>
         </div>
     </div>
 
-    <div mat-dialog-content class="content">
-        <div class="row" formArrayName="persons">
-            <mat-form-field>
+    <div mat-dialog-content class="single-content">
+        <div class="single-row" formArrayName="persons">
+            <mat-form-field class="single-field">
                 <mat-label>Pessoas responsáveis</mat-label>
-                <mat-select [formControl]="persons" multiple>
+                <mat-select [formControl]="personsFormControl" multiple required>
                   <mat-option *ngFor="let person of personsList | async" [value]="person.id">{{person.name}}</mat-option>
                 </mat-select>
+                <mat-hint>Informe as pessoas responsáveis pelo processo</mat-hint>
               </mat-form-field>
         </div>
     </div>
 
-    <div mat-dialog-content class="content">
-        <div class="row" formArrayName="systemApps">
-            <mat-form-field>
+    <div mat-dialog-content class="single-content">
+        <div class="single-row" formArrayName="systemApps">
+            <mat-form-field class="single-field">
                 <mat-label>Sistemas envolvidos</mat-label>
-                <mat-select [formControl]="systemApps" multiple>
+                <mat-select [formControl]="systemAppsFormControl" multiple required>
                   <mat-option *ngFor="let system of systemsList | async" [value]="system.id">{{system.name}}</mat-option>
                 </mat-select>
+                <mat-hint>Informe os sistemas envolvidos no processo</mat-hint>
               </mat-form-field>
         </div>
     </div>

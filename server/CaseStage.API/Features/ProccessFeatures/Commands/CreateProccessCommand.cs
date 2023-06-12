@@ -6,13 +6,12 @@ namespace CaseStage.API.Features.ProccessFeatures.Commands
 {
     public class CreateProccessCommand : IRequest<int>
     {
-        public int? IdParent { get; set; }
+        public int? IdParent { get; set; } = null;
         public int? AreaId { get; set; }
         public string Description { get; set; }
         public string Documentation { get; set; }
         public bool Active { get; set; }
-        public List<int>? Persons { get; set; }
-        
+        public List<int>? Persons { get; set; } = null;
         public List<int>? SystemApps { get; set; } = null;
         //public List<ProccessFile> Files { get; set; } = null;
 
@@ -28,7 +27,7 @@ namespace CaseStage.API.Features.ProccessFeatures.Commands
             public async Task<int> Handle(CreateProccessCommand command, CancellationToken cancellationToken)
             {
                 //Valida se area foi informada (em caso de não ter processo pai)
-                if (command.AreaId != 0)
+                if (command.AreaId != null)
                 {
                     //Verifica se area informada existe no db
                     Area area = await _areaRepository.GetAreaById(Convert.ToInt32(command.AreaId));
@@ -46,7 +45,7 @@ namespace CaseStage.API.Features.ProccessFeatures.Commands
                 var proccess = new Proccess()
                 {
                     IdParent = command.IdParent,
-                    AreaId = command.AreaId == 0 ? null : command.AreaId,
+                    AreaId = command.AreaId,
                     Description = command.Description,
                     Documentation = command.Documentation,
                     Active = command.Active,

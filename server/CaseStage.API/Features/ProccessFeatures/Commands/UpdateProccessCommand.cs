@@ -1,5 +1,4 @@
 ﻿using CaseStage.API.Infrastructure.Interfaces;
-using CaseStage.API.Infrastructure.Repositories;
 using CaseStage.API.Models;
 using MediatR;
 
@@ -8,14 +7,14 @@ namespace CaseStage.API.Features.ProccessFeatures.Commands
     public class UpdateProccessCommand : IRequest<int>
     {
         public int Id { get; set; }
-        public int? IdParent { get; set; }
-        public int? AreaId { get; set; }
+        public int? IdParent { get; set; } = null;
+        public int? AreaId { get; set; } = null;
         public string Description { get; set; }
         public string Documentation { get; set; }
         public bool Active { get; set; }
-        public List<Person> Persons { get; set; }
-        public List<SystemApp> SystemApps { get; set; }
-        public List<ProccessFile> Files { get; set; }
+        public List<int>? Persons { get; set; }
+        public List<int>? SystemApps { get; set; }
+        //public List<ProccessFile>? Files { get; set; }
 
         public class UpdateProccessCommandHandler : IRequestHandler<UpdateProccessCommand, int>
         {
@@ -38,7 +37,7 @@ namespace CaseStage.API.Features.ProccessFeatures.Commands
                 else
                 {
                     //Valida se area foi informada (em caso de não ter processo pai)
-                    if (command.AreaId != 0)
+                    if (command.AreaId != null)
                     {
                         //Verifica se area informada existe no db
                         Area area = await _areaRepository.GetAreaById(Convert.ToInt32(command.AreaId));
@@ -53,7 +52,7 @@ namespace CaseStage.API.Features.ProccessFeatures.Commands
                     if (String.IsNullOrEmpty(command.Description))
                         throw new Exception("Descricao nao informada");
 
-                    proccess.AreaId = command.AreaId == 0 ? null : command.AreaId;
+                    proccess.AreaId = command.AreaId;
                     proccess.IdParent = command.IdParent == 0 ? null : command.IdParent;
                     proccess.Description = command.Description;
                     proccess.Documentation = command.Documentation;
@@ -63,7 +62,7 @@ namespace CaseStage.API.Features.ProccessFeatures.Commands
                     //Deleta pessoas, sistemas, files do processo
                     await _proccessRepository.DeleteProccessPersonByProccessId(proccess.Persons);
                     await _proccessRepository.DeleteProccessSystemByProccessId(proccess.Systems);
-                    await _proccessRepository.DeleteProccessFileByProccessId(proccess.Files);
+                    //await _proccessRepository.DeleteProccessFileByProccessId(proccess.Files);
 
                     var result = _proccessRepository.Update(proccess);
 
@@ -74,32 +73,33 @@ namespace CaseStage.API.Features.ProccessFeatures.Commands
                     {
                         List<ProccessPerson> proccessPersonToAdd = new List<ProccessPerson>();
 
-                        foreach (var person in command.Persons)
+                        foreach (var idPerson in command.Persons)
                         {
                             proccessPersonToAdd.Add(new ProccessPerson()
                             {
-                                PersonId = person.Id,
+                                PersonId = idPerson,
                                 ProccessId = proccess.Id
                             });
                         }
                         await _proccessRepository.CreateProccessPerson(proccessPersonToAdd);
                     }
-
+                    
                     if (command.SystemApps.Any())
                     {
                         List<ProccessSystem> proccessSystemToAdd = new List<ProccessSystem>();
 
-                        foreach (var systemApp in command.SystemApps)
+                        foreach (var idSystemApp in command.SystemApps)
                         {
                             proccessSystemToAdd.Add(new ProccessSystem()
                             {
-                                SystemId = systemApp.Id,
+                                SystemId = idSystemApp,
                                 ProccessId = proccess.Id
                             });
                         }
                         await _proccessRepository.CreateProccessSystemApp(proccessSystemToAdd);
                     }
-
+                    
+                    /*
                     if (command.Files.Any())
                     {
                         List<ProccessFile> proccessFileToAdd = new List<ProccessFile>();
@@ -115,6 +115,7 @@ namespace CaseStage.API.Features.ProccessFeatures.Commands
                         }
                         await _proccessRepository.CreateProccessFile(proccessFileToAdd);
                     }
+                    */
                     return proccess.Id;
                 }
             }
