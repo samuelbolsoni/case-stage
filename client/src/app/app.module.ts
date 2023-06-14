@@ -6,21 +6,21 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AreaComponent } from './area/area.component';
 
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AreaCreateComponent } from './area/area-create/area-create.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TranslateBoolPipe } from './utils/pipes/translate-bool.pipe';
 import { SystemComponent } from './system/system.component';
 import { SystemCreateComponent } from './system/system-create/system-create.component';
@@ -29,6 +29,12 @@ import { PersonCreateComponent } from './person/person-create/person-create.comp
 import { ProccessComponent } from './proccess/proccess.component';
 import { ProccessCreateComponent } from './proccess/proccess-create/proccess-create.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTreeModule } from '@angular/material/tree';
+import { ProccessTreeComponent } from './proccess/proccess-tree/proccess-tree.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MapTreeComponent } from './proccess/map-tree/map-tree.component';
+import {AngularTreeGridModule} from 'angular-tree-grid';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -41,7 +47,9 @@ import { MatSelectModule } from '@angular/material/select';
     PersonCreateComponent,
     ProccessComponent,
     ProccessCreateComponent,
-    TranslateBoolPipe
+    ProccessTreeComponent,
+    TranslateBoolPipe,
+    MapTreeComponent
   ],
   imports: [
     BrowserModule,
@@ -61,9 +69,14 @@ import { MatSelectModule } from '@angular/material/select';
     MatSortModule,
     MatSnackBarModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTreeModule,
+    MatProgressBarModule,
+    AngularTreeGridModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

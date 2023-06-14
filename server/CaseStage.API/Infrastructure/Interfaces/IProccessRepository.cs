@@ -6,6 +6,8 @@ namespace CaseStage.API.Infrastructure.Interfaces
     {
         Task<IEnumerable<Proccess>> GetAllProccess();
         Task<Proccess> GetProccessById(int id);
+        Task<IEnumerable<Proccess>> GetProccessByAreaId(int areaId);
+
         Task<int> Create(Proccess proccess);
         Task<int> Update(Proccess proccess);
         Task<int> Delete(Proccess proccess);

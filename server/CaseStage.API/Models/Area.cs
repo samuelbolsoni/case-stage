@@ -10,5 +10,7 @@ namespace CaseStage.API.Models
         public bool Active { get; set; } = false;
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
+
+        //public List<Proccess> Proccess { get; set; }
     }
 }

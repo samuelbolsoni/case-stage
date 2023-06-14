@@ -18,6 +18,7 @@ namespace CaseStage.API.Features.PersonFeatures.Queries
             {
                 var areaList = await _personRepository.GetAllPersons();
 
+
                 if (areaList == null)
                 {
                     return null;

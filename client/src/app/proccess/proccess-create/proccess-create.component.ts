@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { inject } from '@angular/core/testing';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -18,8 +18,9 @@ import { Proccess } from '../model/proccess';
   templateUrl: './proccess-create.component.html',
   styleUrls: ['./proccess-create.component.css']
 })
-export class ProccessCreateComponent implements OnInit {
 
+export class ProccessCreateComponent implements OnInit {
+  
   proccessForm: FormGroup;
   areasFormControl = new FormControl();
   personsFormControl = new FormControl();
@@ -36,6 +37,9 @@ export class ProccessCreateComponent implements OnInit {
   personsSelected: any[] = [];
   systemsSelected: any[] = [];
 
+  isAreaRequired: boolean = true;
+  isParentRequired: boolean = false;
+
   constructor(
     private _fb: FormBuilder, 
     private _proccessService: ProccessService, 
@@ -45,7 +49,6 @@ export class ProccessCreateComponent implements OnInit {
     private _dialogRef: MatDialogRef<ProccessCreateComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _coreService: CoreService
-
     ) {
     this.proccessForm = this._fb.group({
       areas: '',
@@ -78,8 +81,6 @@ export class ProccessCreateComponent implements OnInit {
     if (this.proccessForm.valid) {
       
       var formSubmited = this.proccessForm.value;
-
-      console.log(formSubmited);
       
       //Parse select fields
       formSubmited.areaId = this.areasFormControl.value;
@@ -134,5 +135,15 @@ export class ProccessCreateComponent implements OnInit {
     this.parentsFormControl.setValue(selectedParent);
     this.personsFormControl.setValue(loadPersonsToSelect);
     this.systemAppsFormControl.setValue(loadSystemsToSelect);
+  }
+
+  disableParentInput(e: any) {
+    this.isAreaRequired = true;
+    this.isParentRequired = false;
+  }
+
+  disableAreaInput(e: any) {
+    this.isParentRequired = true;
+    this.isAreaRequired = false;
   }
 }

@@ -17,6 +17,10 @@ export class AreaService {
     return this.http.get<Area[]>(`${environment.apiUrl}/${this.url}`);
   }
 
+  public GetAreaProccessTree() : Observable<Area[]> {
+    return this.http.get<Area[]>(`${environment.apiUrl}/AreaProccessTree`);
+  }
+
   public updateArea(id: number, area:Area) : Observable<Area[]> {
     return this.http.put<Area[]>(
       `${environment.apiUrl}/${this.url}/${id}`,

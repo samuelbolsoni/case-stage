@@ -21,6 +21,7 @@ namespace CaseStage.API.Infrastructure.Repositories
                                  .Include(x => x.Persons)
                                  .Include(x => x.Systems)
                                  .Include(x => x.Files)
+                                 .OrderBy(x => x.IdParent)
                                  .ToListAsync();
         }
 
@@ -32,6 +33,16 @@ namespace CaseStage.API.Infrastructure.Repositories
                                  .Include(x => x.Systems)
                                  .Include(x => x.Files)
                                  .Where(a => a.Id == id).FirstOrDefaultAsync();
+        }
+
+        public async Task<IEnumerable<Proccess>> GetProccessByAreaId(int areaId)
+        {
+            return await _context.Proccess
+                                 .Include(x => x.Area)
+                                 .Include(x => x.Persons)
+                                 .Include(x => x.Systems)
+                                 .Include(x => x.Files)
+                                 .Where(a => a.AreaId == areaId).ToListAsync();
         }
 
         public Task<int> Create(Proccess proccess)

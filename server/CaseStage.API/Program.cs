@@ -23,6 +23,7 @@ builder.Services.AddEndpointsApiExplorer();
 // Swagger Documentation
 builder.Services.AddSwaggerGen(options =>
 {
+
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",

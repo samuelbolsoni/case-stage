@@ -1,4 +1,33 @@
 <mat-toolbar color="primary">
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/areas">
+      <mat-icon>dialpad</mat-icon>
+      <span>Areas</span>
+    </button>
+    <button mat-menu-item routerLink="/person">
+      <mat-icon>dialpad</mat-icon>
+      <span>Pessoas</span>
+    </button>
+    <button mat-menu-item routerLink="/systems">
+      <mat-icon>dialpad</mat-icon>
+      <span>Sistemas</span>
+    </button>
+    <button mat-menu-item routerLink="/proccess">
+        <mat-icon>dialpad</mat-icon>
+        <span>Processos</span>
+      </button>
+    <button mat-menu-item disabled>
+      <mat-icon>voicemail</mat-icon>
+      <span>Check voice mail</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Disable alerts</span>
+    </button>
+  </mat-menu>
   <span>Case Stage</span>
   <span class="example-spacer"></span>
   <button mat-raised-button (click)="openAddEditProccessForm()">
@@ -61,7 +90,7 @@
           </tr>
         </table>
       
-        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[25, 50, 100]" aria-label="Processos por página"></mat-paginator>
       </div>
 </div>
   

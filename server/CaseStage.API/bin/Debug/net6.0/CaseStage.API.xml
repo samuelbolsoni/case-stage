@@ -45,6 +45,14 @@
             <returns>ID da Area</returns>
             <response code="200">Atualiza a área pelo ID</response>
         </member>
+        <member name="M:CaseStage.API.Controllers.AreaProccessTreeController.GetAll">
+            <summary>
+            Retorna todas as áreas
+            </summary>
+            <returns>List de Area</returns>
+            <response code="200">Retorna todas as áreas</response>
+            <response code="400">Área é nula</response>
+        </member>
         <member name="M:CaseStage.API.Controllers.PersonController.Create(CaseStage.API.Features.PersonFeatures.Commands.CreatePersonCommand)">
             <summary>
             Criar uma nova pessoa
@@ -126,6 +134,14 @@
             <param name="command">UpdateProccessCommand</param>
             <returns>Sistema</returns>
             <response code="200">Atualiza o processo pelo ID</response>
+        </member>
+        <member name="M:CaseStage.API.Controllers.ProccessTreeController.GetProccessTree">
+            <summary>
+            Retorna todas as áreas
+            </summary>
+            <returns>List de Area</returns>
+            <response code="200">Retorna todas as áreas</response>
+            <response code="400">Área é nula</response>
         </member>
         <member name="M:CaseStage.API.Controllers.SystemAppController.Create(CaseStage.API.Features.SystemAppFeatures.Commands.CreateSystemAppCommand)">
             <summary>

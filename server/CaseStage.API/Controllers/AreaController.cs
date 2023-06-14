@@ -1,5 +1,6 @@
 ﻿using CaseStage.API.Features.AreaFeatures.Commands;
 using CaseStage.API.Features.AreaFeatures.Queries;
+using CaseStage.API.Features.ProccessFeatures.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -40,7 +41,14 @@ namespace CaseStage.API.Controllers
         {
             return Ok(await Mediator.Send(new GetAllAreasQuery()));
         }
-
+        /*
+        [HttpGet]
+        [Route("GetAreasTree")]
+        public async Task<IActionResult> GetAreasTree()
+        {
+            return Ok(await Mediator.Send(new GetAreasTreeQuery()));
+        }
+        */
         /// <summary>
         /// Retorna a área pelo ID
         /// </summary>

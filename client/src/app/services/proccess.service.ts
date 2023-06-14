@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from 'src/environments/environment';
 import { Proccess } from '../proccess/model/proccess';
+import { ProccessTree } from '../proccess/model/proccess-tree';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,15 @@ import { Proccess } from '../proccess/model/proccess';
 export class ProccessService {
 
   private url = "Proccess";
-
+  
   constructor(private http: HttpClient) { }
-
+  
   public GetProccess() : Observable<Proccess[]> {
     return this.http.get<Proccess[]>(`${environment.apiUrl}/${this.url}`);
+  }
+
+  public GetProccessTree() : Observable<ProccessTree[]> {
+    return this.http.get<ProccessTree[]>(`${environment.apiUrl}/ProccessTree/GetProccessTree`);
   }
 
   public updateProccess(id: number, proccess:Proccess) : Observable<Proccess[]> {
@@ -25,7 +30,6 @@ export class ProccessService {
   }
 
   public createProccess(proccess:Proccess) : Observable<Proccess[]> {
-    console.log(proccess);
     return this.http.post<Proccess[]>(
       `${environment.apiUrl}/${this.url}`,
       proccess

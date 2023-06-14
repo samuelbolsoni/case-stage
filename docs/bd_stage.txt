@@ -1,44 +1,5 @@
-Estrutura banco de dados CaseStage
-
-- Cadastro de areas
-	- Id - (Guid) Primary Key Auto Increment
-	- Name - (string) 255 not null
-	- Active - bool
-	- Created_at - datetime
-	- Updated_at - datetime
+- proccess
+	- inserir campo parent paixd
+	- trocar icones do menu
 	
-- Cadastro de pessoas
-	- Id - (Guid) Primary Key Auto Increment
-	- Name - (string) 255 not null
-	- Email - (string) 255 not null
-	- Active - bool
-	- Created_at - datetime
-	- Updated_at - datetime
-
-- Cadastro de sistemas
-	- Id - (Guid) Primary Key Auto Increment
-	- Name - (string) 255 not null
-	- Created_at - datetime
-	- Updated_at - datetime
-	
-- Cadastro de Processos
-	- Id - (Guid) Primary Key Auto Increment
-	- IdArea - (Guid) Foreign Key
-	- IdParent - (Guid) null
-	- Name - (string) 255 not null]
-	- Documentation - (text) null
-	- Active - bool
-	- Created_at - datetime
-	- Updated_at - datetime
-	
-- Relacionamento Processo - Pessoas
-	IdProcesso - (Guid) not null
-	IdPessoa - (Guid) not null
-	
-- Relacionamento Processo - Sistemas
-	IdProcesso - (Guid) not null
-	IdSistema - (Guid) not null
-	
-- Processo - Docs
-	IdProcesso - (Guid) not null
-	File - (string) not null
+	mapeamento por expansion panel material ui
