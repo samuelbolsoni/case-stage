@@ -31,6 +31,7 @@ namespace CaseStage.API.Features.ProccessFeatures.Queries
                         new ProccessTree
                         {
                             Id = proccess.Id,
+                            IdParent = proccess.IdParent,
                             Description = proccess.Description,
                             Childrens = childrensProccess,
                         }
@@ -49,6 +50,7 @@ namespace CaseStage.API.Features.ProccessFeatures.Queries
                         .Select(c => new Proccess
                         {
                             Id = c.Id,
+                            IdParent = c.IdParent,
                             Description = c.Description
                         })
                         .ToList();

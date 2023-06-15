@@ -1,7 +1,8 @@
-- proccess
-	- inserir campo parent paixd
-	- trocar icones do menu
+- pro
 	
-	mapeamento por expansion panel material ui
+
 	
-	<mat-icon>subdirectory_arrow_right</mat-icon>
+- sleecionar no array todos os idparent != null - OK
+	- buscar no array original o pai comparando id_parent com o idparent
+	 - inserir como filho do array encontrado
+		- remover o array do child inserido do array para enviar
