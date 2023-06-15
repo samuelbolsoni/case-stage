@@ -35,6 +35,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MapTreeComponent } from './proccess/map-tree/map-tree.component';
 import {AngularTreeGridModule} from 'angular-tree-grid';
 import {MatMenuModule} from '@angular/material/menu';
+import { MapProccessComponent } from './proccess/map-proccess/map-proccess.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { MapProccessViewDetailsComponent } from './proccess/map-proccess-view-details/map-proccess-view-details.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,9 @@ import {MatMenuModule} from '@angular/material/menu';
     ProccessCreateComponent,
     ProccessTreeComponent,
     TranslateBoolPipe,
-    MapTreeComponent
+    MapTreeComponent,
+    MapProccessComponent,
+    MapProccessViewDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +78,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatTreeModule,
     MatProgressBarModule,
     AngularTreeGridModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CaseStage.API.Models
 {
@@ -10,6 +11,8 @@ namespace CaseStage.API.Models
         [Required]
         [MaxLength(255)]
         public string Description { get; set; } = string.Empty;
+        [NotMapped]
+        public string? ParentDescription { get; set; } = string.Empty;
         [MaxLength(800)]
         public string? Documentation { get; set; } = string.Empty;
         public bool Active { get; set; } = true;

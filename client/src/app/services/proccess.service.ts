@@ -18,7 +18,11 @@ export class ProccessService {
     return this.http.get<Proccess[]>(`${environment.apiUrl}/${this.url}`);
   }
 
-  public GetProccessTree() : Observable<ProccessTree[]> {
+  public GetProccessById(id:number) : Observable<Proccess[]> {
+    return this.http.get<Proccess[]>(`${environment.apiUrl}/${this.url}/${id}`);
+  }
+
+  public GetProccessTree() : Observable<any[]> {
     return this.http.get<ProccessTree[]>(`${environment.apiUrl}/ProccessTree/GetProccessTree`);
   }
 

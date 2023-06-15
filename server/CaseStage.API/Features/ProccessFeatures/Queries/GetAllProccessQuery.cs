@@ -22,6 +22,18 @@ namespace CaseStage.API.Features.ProccessFeatures.Queries
                 {
                     return null;
                 }
+
+                foreach(var proccess in proccessList)
+                {
+                    if (proccess.IdParent != null)
+                    {
+                        var nameParent = proccessList.Where(x => x.Id == proccess.IdParent).FirstOrDefault();
+
+                        if (nameParent != null) { 
+                            proccess.ParentDescription = nameParent.Description;
+                        }
+                    }
+                }
                 return proccessList;
             }
         }

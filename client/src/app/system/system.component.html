@@ -1,7 +1,35 @@
 <mat-toolbar color="primary">
-  <span>Case Stage</span>
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/areas">
+      <mat-icon>dialpad</mat-icon>
+      <span>Areas</span>
+    </button>
+    <button mat-menu-item routerLink="/person">
+      <mat-icon>perm_identity</mat-icon>
+      <span>Pessoas</span>
+    </button>
+    <button mat-menu-item routerLink="/systems">
+      <mat-icon>important_devices</mat-icon>
+      <span>Sistemas</span>
+    </button>
+    <button mat-menu-item routerLink="/proccess">
+      <mat-icon>format_align_left</mat-icon>
+      <span>Processos</span>
+    </button>
+    <button mat-menu-item routerLink="/map-proccess">
+      <mat-icon>category</mat-icon>
+      <span>Mapeamento</span>
+    </button>
+  </mat-menu>
+  
+  <span>Case Stage - Sistemas</span>
   <span class="example-spacer"></span>
   <button mat-raised-button (click)="openAddEditSystemForm()">
+    <mat-icon>important_devices</mat-icon>
     Novo Sistema
   </button>
 </mat-toolbar>

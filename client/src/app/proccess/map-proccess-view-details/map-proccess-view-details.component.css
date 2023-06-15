@@ -1,0 +1,17 @@
+.content {
+    padding-top: 5px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+.single-field {
+    padding-top: 5px;
+    width: 100%;
+}
+
+.div-title {
+    margin-bottom: -20px;
+}

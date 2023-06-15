@@ -17,7 +17,7 @@ import { ProccessCreateComponent } from './proccess-create/proccess-create.compo
 })
 export class ProccessComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'area', 'description', 'active', 'actions'];
+  displayedColumns: string[] = ['id', 'area', 'description', 'parentDescription', 'active', 'actions'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -44,7 +44,6 @@ export class ProccessComponent implements OnInit {
   }
 
   openEditProccessForm(data:any) {
-    console.log(data);
     const dialogRef = this._dialog.open(ProccessCreateComponent, {
       data,
     });
@@ -56,7 +55,6 @@ export class ProccessComponent implements OnInit {
         }
       }
     })
-    
   }
 
   getProccessList() {
@@ -73,7 +71,7 @@ export class ProccessComponent implements OnInit {
   deleteProccess(id: number) {
     this._proccessService.deleteProccess(id).subscribe({
       next: (res) => {
-        this._coreService.openSnackBar('Processo deletada com sucesso', 'done')
+        this._coreService.openSnackBar('Processo deletado com sucesso', 'done')
         this.getProccessList();
       },
       error: console.error,
