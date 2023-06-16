@@ -43,11 +43,11 @@ namespace CaseStage.API.Features.ProccessFeatures.Queries
                 return proccessTree;
             }
         
-            public List<Proccess> GetChildren(List<Proccess> proccess, int? parentId)
+            public List<ProccessTree> GetChildren(List<Proccess> proccess, int? parentId)
             {
                 var resultado = proccess
                         .Where(c => c.IdParent == parentId)
-                        .Select(c => new Proccess
+                        .Select(c => new ProccessTree
                         {
                             Id = c.Id,
                             IdParent = c.IdParent,

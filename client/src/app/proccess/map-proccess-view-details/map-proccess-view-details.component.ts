@@ -59,7 +59,6 @@ export class MapProccessViewDetailsComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    console.log(this.data);
     this.areasList = this._areaService.GetAreas();
     this.personsList = this._personService.GetPersons();
     this.systemsList = this._systemService.GetSystems();

@@ -11,6 +11,6 @@ namespace CaseStage.API.Models
         [MaxLength(255)]
         public string Description { get; set; } = string.Empty;
 
-        public List<Proccess>? Childrens { get; set; } = null;
+        public List<ProccessTree>? Childrens { get; set; } = null;
     }
 }

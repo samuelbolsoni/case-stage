@@ -14,7 +14,7 @@ interface IProccessNode {
 }
 
 class ProccessNode  {
-  constructor(public description:string, public childrens:ProccessNode[]) {}
+  constructor(public id: number, public description:string, public childrens:ProccessNode[]) {}
 }
 
 /** Flat node with expandable and level information */
@@ -33,10 +33,7 @@ interface ExampleFlatNode {
 export class MapProccessComponent {
 
   listProccess!: IProccessNode[];
-  newTree!: IProccessNode[];
   
-  tree!: ProccessNode[];
-  nodes!: any[];
   nodesToRemove!: any[];
 
   private _transformer = (node: IProccessNode, level: number) => {
@@ -67,7 +64,7 @@ export class MapProccessComponent {
   }
 
   ngOnInit() {
-    this.fetchProccess();
+    this.fetchProccessMap();
   }
 
   openViewProccessForm(data:any) {
@@ -82,89 +79,67 @@ export class MapProccessComponent {
         dialogRef.afterClosed().subscribe({
           next: (val) => {
             if (val) {
-              this.fetchProccess();
+              this.fetchProccessMap();
             }
           }
         })
-
       },
       error: console.log,
     });
-    
   }
 
-  fetchProccess(){
+  fetchProccessMap(){
     this._proccessService.GetProccessTree().subscribe(data => {
       
-      const nodesToRemove = Array();
-
       this.listProccess = data;
 
-      //Busca todos os filhos do array
-      const allChildrens = this.listProccess.filter((obj) => {
-        return obj.idParent != null;
-      });
+      //Começo testes
+      const tree: ProccessNode[] = [];
 
-      //Varre os filhos encontrados
-      allChildrens.forEach(children => {
+      this.listProccess.forEach((node, index)=> {
+         
+        if (node.idParent == null) {
 
-        //Busca o pai do filho
-        const parentFind = this.listProccess.filter((obj) => {
-          return obj.id == children.idParent;
-        });
+          //Verifica a recursividade
+          for(let x=0; x<node.childrens.length; x++) {
+            if (node.childrens.length > 0) {
 
-        if (parentFind != null) {
-          const parent = parentFind[0]; //Recebe o pai
+              //Busca o registro no array original
+              const insertChildOnParent = this.listProccess.filter((obj) => {
+                return obj.idParent == node.childrens[x].id;
+              });
 
-          //Busca o pai no array original
-          const insertChildOnParent = this.listProccess.filter((obj) => {
-            return obj.id == parent.id;
-          });
+              node.childrens[x].childrens = [];
+              node.childrens[x].childrens.push(...insertChildOnParent);
 
-          console.log(insertChildOnParent[0].childrens);
-          insertChildOnParent[0].childrens.push(children);
-          
-          const childToRemove = this.listProccess.filter((obj) => {
-            return obj.id == children.id;
-          });
+              for(let y=0; y<node.childrens[x].childrens.length; y++) {
+                const insertChildOnParent2 = this.listProccess.filter((obj) => {
+                  return obj.idParent == node.childrens[x].childrens[y].id;
+                });
+  
+                node.childrens[x].childrens[y].childrens = [];
+                node.childrens[x].childrens[y].childrens.push(...insertChildOnParent2);
 
-          nodesToRemove.push(childToRemove[0]);
-        }
-      });
-
-      //Remover os filhos duplicados
-      this.listProccess.forEach(element => {
-        const childrensOnArray = Array();
-        element.childrens.forEach((childrenDuplicated, index) => {
-          if (childrenDuplicated.hasOwnProperty('parentDescription')) {
-            element.childrens.splice(index,1);
+                for(let z=0; z<node.childrens[x].childrens[y].childrens.length; z++) {
+                  const insertChildOnParent2 = this.listProccess.filter((obj) => {
+                    return obj.idParent == node.childrens[x].childrens[y].childrens[z].id;
+                  });
+    
+                  node.childrens[x].childrens[y].childrens[z].childrens= [];
+                  node.childrens[x].childrens[y].childrens[z].childrens.push(...insertChildOnParent2);
+                }
+              }
+            }
           }
-          
-        });
-        console.log(childrensOnArray);
-      });
 
-      //Remove do array os filhos
-      this.listProccess.forEach((element, index)=> {
+          const nodes = new ProccessNode(node.id, node.description, node.childrens);
 
-        const findNodeToDeleteOnOriginalArray = this.listProccess.filter((obj) => {
-          return obj.id == element.id;
-        });
-
-        const findNodeToDelete = nodesToRemove.filter((obj) => {
-          return obj.id == element.id;
-        });
-
-        if (findNodeToDelete.length > 0  && findNodeToDeleteOnOriginalArray.length > 0 ) {
-
-          if (findNodeToDelete[0].id == findNodeToDeleteOnOriginalArray[0].id) {
-            this.listProccess.splice(index,1);
-          }
+          tree.push(nodes)
         }
       });
 
       this.dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-      this.dataSource.data = this.listProccess;
+      this.dataSource.data = tree;
     })
   }
 
