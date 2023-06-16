@@ -20,42 +20,39 @@ namespace CaseStage.API.Features.ProccessFeatures.Queries
             {
                 var proccessTree = new List<ProccessTree>();
 
-                var allProccess = _proccessRepository.GetAllProccess().Result;
+                var allProccess = ConvertToProccessTree(_proccessRepository.GetAllProccess().Result);
 
                 foreach (var proccess in allProccess)
                 {
-                    var childrensProccess = GetChildren(allProccess.ToList(), proccess.Id);
+                    var children = allProccess.Where(x => x.IdParent == proccess.Id);
 
-                    var newProccessChildren = new List<ProccessTree>()
+                    if (children != null && children.Any())
                     {
-                        new ProccessTree
-                        {
-                            Id = proccess.Id,
-                            IdParent = proccess.IdParent,
-                            Description = proccess.Description,
-                            Childrens = childrensProccess,
-                        }
-                    };
-                    
-                    proccessTree.AddRange(newProccessChildren);
+                        proccess.Childrens.AddRange(children);
+                    }
+                        
+                    if (proccess.IdParent == null)
+                        proccessTree.Add(proccess);
 
                 }
                 return proccessTree;
             }
-        
-            public List<ProccessTree> GetChildren(List<Proccess> proccess, int? parentId)
-            {
-                var resultado = proccess
-                        .Where(c => c.IdParent == parentId)
-                        .Select(c => new ProccessTree
-                        {
-                            Id = c.Id,
-                            IdParent = c.IdParent,
-                            Description = c.Description
-                        })
-                        .ToList();
 
-                return resultado;
+            public List<ProccessTree> ConvertToProccessTree(IEnumerable<Proccess> children)
+            {
+                var treeChildren = new List<ProccessTree>();
+                
+                foreach (var child in children)
+                {
+                    treeChildren.Add(new ProccessTree()
+                    {
+                        Id = child.Id,
+                        Description = child.Description,
+                        IdParent = child.IdParent
+                    });
+                }
+
+                return treeChildren;
             }
         }
     }

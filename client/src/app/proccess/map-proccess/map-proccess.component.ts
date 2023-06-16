@@ -103,53 +103,9 @@ export class MapProccessComponent {
       
       this.listProccess = data;
       
-      const tree: ProccessNode[] = [];
-
-      this.listProccess.forEach((node, index)=> {
-         
-        if (node.idParent == null) {
-
-          //Verifica a recursividade
-          for(let x=0; x<node.childrens.length; x++) {
-            if (node.childrens.length > 0) {
-
-              //Busca o registro no array original
-              const insertChildOnParent = this.listProccess.filter((obj) => {
-                return obj.idParent == node.childrens[x].id;
-              });
-
-              node.childrens[x].childrens = [];
-              node.childrens[x].childrens.push(...insertChildOnParent);
-
-              for(let y=0; y<node.childrens[x].childrens.length; y++) {
-                const insertChildOnParent2 = this.listProccess.filter((obj) => {
-                  return obj.idParent == node.childrens[x].childrens[y].id;
-                });
-  
-                node.childrens[x].childrens[y].childrens = [];
-                node.childrens[x].childrens[y].childrens.push(...insertChildOnParent2);
-
-                for(let z=0; z<node.childrens[x].childrens[y].childrens.length; z++) {
-                  const insertChildOnParent2 = this.listProccess.filter((obj) => {
-                    return obj.idParent == node.childrens[x].childrens[y].childrens[z].id;
-                  });
-    
-                  node.childrens[x].childrens[y].childrens[z].childrens= [];
-                  node.childrens[x].childrens[y].childrens[z].childrens.push(...insertChildOnParent2);
-                }
-              }
-            }
-          }
-
-          const nodes = new ProccessNode(node.id, node.description, node.childrens);
-
-          tree.push(nodes)
-        }
-      });
-
       this.dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
       this.dataSourceTable = new MatTableDataSource(this.listProccess);
-      this.dataSource.data = tree;
+      this.dataSource.data = this.listProccess;
     })
   }
 

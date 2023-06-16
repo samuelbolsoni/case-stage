@@ -12,5 +12,10 @@ namespace CaseStage.API.Models
         public string Description { get; set; } = string.Empty;
 
         public List<ProccessTree>? Childrens { get; set; } = null;
+
+        public ProccessTree()
+        {
+            Childrens = new List<ProccessTree>();
+        }
     }
 }

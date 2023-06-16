@@ -22,6 +22,7 @@ namespace CaseStage.API.Features.AreaFeatures.Queries
                 {
                     return null;
                 }
+
                 return areaList;
             }
         }

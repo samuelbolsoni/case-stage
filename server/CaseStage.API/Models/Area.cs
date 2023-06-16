@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CaseStage.API.Models
 {
@@ -7,10 +8,9 @@ namespace CaseStage.API.Models
         public int Id { get; set; }
         [MaxLength(100)]
         public string Name { get; set; } = string.Empty;
+
         public bool Active { get; set; } = false;
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
-
-        //public List<Proccess> Proccess { get; set; }
     }
 }
