@@ -4,6 +4,7 @@ import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree'
 import { ProccessService } from 'src/app/services/proccess.service';
 import { MapProccessViewDetailsComponent } from '../map-proccess-view-details/map-proccess-view-details.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
 
 interface IProccessNode {
   parentDescription: undefined;
@@ -32,6 +33,13 @@ interface ExampleFlatNode {
 })
 export class MapProccessComponent {
 
+  displayedColumns: string[] = ['description'];
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSourceTable.filter = filterValue.trim().toLowerCase();
+  }
+  
   listProccess!: IProccessNode[];
   
   nodesToRemove!: any[];
@@ -58,6 +66,8 @@ export class MapProccessComponent {
   );
 
   dataSource!: any;
+  dataSourceTable!: any;
+
   returnSource!: any;
   constructor(private _proccessService: ProccessService, private _dialog: MatDialog ) 
   {
@@ -92,8 +102,7 @@ export class MapProccessComponent {
     this._proccessService.GetProccessTree().subscribe(data => {
       
       this.listProccess = data;
-
-      //Começo testes
+      
       const tree: ProccessNode[] = [];
 
       this.listProccess.forEach((node, index)=> {
@@ -139,6 +148,7 @@ export class MapProccessComponent {
       });
 
       this.dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
+      this.dataSourceTable = new MatTableDataSource(this.listProccess);
       this.dataSource.data = tree;
     })
   }

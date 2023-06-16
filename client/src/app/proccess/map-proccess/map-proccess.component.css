@@ -2,3 +2,18 @@
     margin-left: 10px;
     margin-top: 10px
 }
+
+.filter-field {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.icon-view {
+    margin-left: 10px;
+    color: cornflowerblue;
+    margin-top: 5px;
+}
+
+.icon-tab {
+    margin-right: 5px;
+}

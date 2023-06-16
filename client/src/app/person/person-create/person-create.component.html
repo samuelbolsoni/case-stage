@@ -1,32 +1,19 @@
 <div mat-dialog-title class="div-title">
-    <span>Novo Processo</span>
+    <span>Nova Pessoa</span>
 </div>
 <form [formGroup]="personForm" (ngSubmit)="onFormSubmit()">
 
-    <div mat-dialog-content class="content">
+    <div mat-dialog-content class="single-content">
         <div class="row">
             <mat-form-field appearance="outline">
-            <input matInput type="text" placeholder="Nome" formControlName="name">
-            <mat-hint>Informe o nome da pessoa</mat-hint>
+                <input matInput type="text" placeholder="Nome" formControlName="name" required>
+                <mat-hint>Informe o nome da pessoa</mat-hint>
             </mat-form-field>
-        </div>
-    </div>
-    
-    <div mat-dialog-content class="content">
-        <div class="row">
             <mat-form-field appearance="outline">
-            <input matInput type="email" placeholder="Email" name="email" formControlName="email" required />
-            <mat-hint>Informe o email da pessoa</mat-hint>
-            <mat-error *ngIf="personForm.value.email">Informe um email válido</mat-error>
+                <input matInput type="email" placeholder="Email" name="email" formControlName="email" required />
+                <mat-hint>Informe o email da pessoa</mat-hint>
+                <mat-error *ngIf="personForm.value.email">Informe um email válido</mat-error>
             </mat-form-field>
-        </div>
-    </div>
-
-    <div mat-dialog-content class="content">
-        <div class="row">
-            <section class="example-section">
-                <mat-checkbox class="example-margin" formControlName="active">Ativo</mat-checkbox>
-              </section>
         </div>
     </div>
 

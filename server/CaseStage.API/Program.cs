@@ -23,7 +23,6 @@ builder.Services.AddEndpointsApiExplorer();
 // Swagger Documentation
 builder.Services.AddSwaggerGen(options =>
 {
-
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
@@ -33,7 +32,6 @@ builder.Services.AddSwaggerGen(options =>
 
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
-
 });
 
 //Cors
